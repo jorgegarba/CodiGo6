@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Datos del Usuario</legend>
+
+            <table>
+                <tr>
+                    <td><label for="nombre">Nombre:</label></td>
+                    <td><input type="text" 
+                                placeholder="Ejm: Juan"
+                                required
+                                minlength="2"
+                                maxlength="50"
+                                autofocus
+                                tabindex="1"
+                                id="nombre"/></td>
+                </tr>
+                <tr>
+                    <td><label>Apellido:</label></td>
+                    <td><input type="text" /></td>
+                </tr>
+                <tr>
+                    <td><label>Fecha de Nacimiento:</label></td>
+                    <td><input type="date"/></td>
+                </tr>
+                <tr>
+                    <td><label>Hora de Ingreso:</label></td>
+                    <td><input type="time"/></td>
+                </tr>
+                <tr>
+                    <td><label>Password:</label></td>
+                    <td><input type="password"
+                                required
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Al menos 1 Mayuscula, 1 Minuscula y 1 numero, minimo 8 caracteres"/><br/>
+                        <small>Al menos 1 Mayuscula, 1 Minuscula y 1 numero, minimo 8 caracteres</small> </td>
+                </tr>
+                <tr>
+                    <td><label>Correo Electrónico:</label></td>
+                    <td><input type="email" /></td>
+                </tr>
+                <tr>
+                    <td><label>Color favorito:</label></td>
+                    <td><input type="color" /></td>
+                </tr>
+                <tr>
+                    <td><label>Foto de Perfil:</label></td>
+                    <td><input type="file" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Registrar">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</body>
+
+</html>
