@@ -1,0 +1,94 @@
+<!--Doctype es una etiqueta en la cual estoy declarando 
+que este archivo es un tipo de documento en HTML5-->
+<!DOCTYPE html>
+<!--El Cierre se representa con una diagonal /    ej: 
+       <html></html>-->
+<html>
+    <head lang="es">
+        <!-- Nos sirve para poner contenido
+        que no siempre va a ser visual, pero va a ser util 
+    para el navegador y también para el documento html -->
+            <meta charset="UTF-8">
+            <meta name="keywords" content="HTML5,Código,Etiquetas,Libro,Pizza">
+            <meta name="description" content="Esta es una mi primera página web desarrollada con HTML5">
+            
+            <!-- Unicode 8 -->
+            <!-- title nos sirve para poner un título en la 
+            pestaña del navegador -->
+            <link rel="icon" type="image/png" href="assets/img/favicon.png">
+            <title>CodiGO - Bootcamp de Desarrollo Web</title>
+            
+    </head>
+    <!-- <body> vamos a tener todo el contenido VISIBLE de nuestra página Web -->
+    <body>
+        <header>
+            
+            <h1>Título de mi Página Web</h1>
+            <!-- <h2>Título de mi Página Web</h2>
+            <h3>Título de mi Página Web</h3>
+            <h4>Título de mi Página Web</h4>
+            <h5>Título de mi Página Web</h5>
+            <h6>Título de mi Página Web</h6> -->
+        </header>
+        <nav>
+            <!-- unordened list -->
+            <!-- El michi # me sirve para hacer referencia a la misma página web -->
+            <ul>
+                <li><a href="#articulo_1">Artículo 1</a></li>
+                <li><a href="#articulo_2">Artículo 2</a></li>
+                <li><a href="#articulo_3">Artículo 3</a></li>
+                <li><a href="#articulo_4">Artículo 4</a></li>
+            </ul>
+        </nav>
+        <section>
+            <article>
+                <h2 id="articulo_1">Título de Artículo 1</h2>
+                <!-- strong es para resaltar texto -->
+                <p><strong>Lorem</strong> ipsum dolor sit, amet consectetur adipisicing 
+                    elit. Deserunt, aut a iure, excepturi reiciendis 
+                    voluptates cum obcaecati veniam tempora ex itaque 
+                    ducimus repellendus esse dolor non alias ipsum doloribus sed!</p>
+                    <a href="#">Regresar...</a>
+            </article>
+            <article>
+                <h2 id="articulo_2">Titulo de Artículo 2</h2>
+                <!-- em es para poner en cursiva -->
+                <p><em>Lorem ipsum</em> dolor sit amet consectetur adipisicing elit. Officiis, quasi sapiente. Repellat modi provident accusantium aliquid beatae. Laboriosam et ad non nam enim, ullam officiis facere consequatur minus dolore quaerat.</p>
+            </article>
+            <article>
+                <!-- code -->
+                <h2 id="articulo_3">Titulo de Artículo 3</h2>
+                <p><code>Lorem ipsum dolor</code> sit amet consectetur adipisicing elit. Officiis, quasi sapiente. Repellat modi provident accusantium aliquid beatae. Laboriosam et ad non nam enim, ullam officiis facere consequatur minus dolore quaerat.</p>
+            </article>
+            <article>
+                <h2 id="articulo_4">Titulo de Artículo 4</h2>
+                <p><small>Lorem ipsum dolor</small> sit amet consectetur adipisicing elit. Officiis, quasi sapiente. Repellat modi provident accusantium aliquid beatae. Laboriosam et ad non nam enim, ullam officiis facere consequatur minus dolore quaerat.</p>
+                <time>20:27</time>
+
+            </article>
+        </section>
+        <aside>
+            <div>
+                <h3>Redes Sociales</h3>
+                <!-- ordened list -->
+                <ol>
+                    <!-- nombre-de-la-propiedad="" -->
+                    <li><a href="https://facebook.com">Facebook</a></li>
+                    <li><a href="https://twitter.com">Twitter</a></li>
+                    <li><a href="https://youtube.com">Youtube</a></li>
+                    <li><a href="https://instagram.com">Instagram</a></li>
+                </ol>
+            </div>
+            <div>
+                <h3>Game of Thrones</h3>
+                <img src="assets/img/got.png" width="300px">
+            </div>
+        </aside>
+        <footer>
+            <span>CodiGO - Derechos Reservados</span>
+            
+            
+            <span>2019</span>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+/* solo estamos llamando a mi archivo de fuentes y poniendole
+    un alias, No lo estoy asignando todavia*/
+@font-face{
+    font-family:'codigo';
+    src:url('./KaushanScript-Regular.otf')
+}
+
+#fontfamily{
+    font-family:Arial,cursive,Helvetica;
+}
+#fontsize{
+    font-size:40px;
+}   
+#fontweight{
+    font-weight:bold;
+}
+#fontstyle{
+    font-style:italic; 
+}
+/* Estilos(bold italic) tamaño(24px) familia(sans-serif) */
+#font{
+    font:bold 24px Arial,cursive;
+}
+#textalign{
+    text-align: center; /* right left */
+}
+#textalign2{
+    text-align:justify;
+}
+#textindent{
+    text-indent: 30px;
+}
+#letter-spacing{
+    letter-spacing: 6px;
+}
+#wordspacing{
+    word-spacing: 15px;
+}
+#line-height{
+    line-height:50px;
+}
+#textdecoration{
+    text-decoration: underline red;
+}
+#customfont{
+    font-family:'codigo';
+    user-select: none;
+    -moz-user-select: none;
+}
+h1{
+    font-family: 'Lobster', cursive;
+}

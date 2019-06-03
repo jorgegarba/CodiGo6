@@ -1,0 +1,65 @@
+/* #nombreid para ID .nombreclase para clase */
+#tabla1{
+    color:brown;
+    font-size:20px;
+    
+}
+
+#tabla2{
+    background-color:black;
+    color:white;
+    font-weight: bold;
+}
+#unparrafo{
+    color:red;
+}
+
+.vparrafos{
+    font-weight:bolder;
+    background-color:greenyellow;
+    color:orangered;
+}
+/* espacio para llamar a hijos inmediatos */
+section .multiple{
+    background-color:skyblue;
+    color:green;
+}
+
+.article p{
+    color:blue;
+    background-color:gray;
+    font-style:italic;
+}
+#p1{
+    font-weight:bold;
+}
+/* [atributo] */
+label[for]{
+    background-color:skyblue;
+    font-size:24px;
+}
+/* [atributo="valor"] */
+label[for="variable"]{
+    background-color:red;
+    font-size:30px;
+    font-weight:bold;   
+}
+/* pseudo clases */
+/* selecciono un elemento '#tabla1' un elemento hijo 'tr' 
+seguido por :nth-child(v) --->> selector hijo:nth-child(v)*/
+#tabla1 tr:nth-child(3){
+    background-color:skyblue;
+    font-weight:bold;
+}
+/* aparte de 'odd' el otro valor que me puede recibir es 'even' */
+#tabla2 tr:nth-child(even){
+    background-color:gray;
+    color:black;
+}
+/* va a buscar todos los div que pueda colocar estas propiedades
+    pero a excepción de la clase o valor que le este pasando a
+    not(clase o valor) */
+div:not(.excepcion){
+    font-size:40px;
+    background-color:violet;
+}

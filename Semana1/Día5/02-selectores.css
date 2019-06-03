@@ -1,0 +1,34 @@
+/* Este es mi comentario */
+/* estructura ->
+                selector:{
+                    propiedad:valor;
+                 } */
+/* * llamamos a todo */
+* {
+    color:violet;
+}
+/* llamamos a todos los <p> del documento */
+p{
+    color:firebrick;
+    font-size:30px;
+}
+/* llamamos a todos los <label> del documento */
+label{
+    color:purple;
+}
+/* todos los hijos que esten dentro de div */
+div label{
+    font-size:45px;
+    color:hotpink;
+}
+/* todos los hijos inmediatos de div */
+div > label{
+    color:blue;
+}
+h1 + h2{
+    font-weight:bold;
+    color:green;
+}
+h3,h4,h5{
+    background-color:yellow;
+}
