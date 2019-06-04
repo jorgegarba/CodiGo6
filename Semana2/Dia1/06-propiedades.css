@@ -1,0 +1,61 @@
+/* le quitamos a todo elemento cualquier margin o padding
+que pueda tener de forma predeterminada */
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-image:url('./textura.jpg');
+}
+#contenedor{
+    border:red 1px solid;
+    margin:40px;
+    padding:20px;
+}
+#caja1{
+    border:blue 1px solid;
+    /* esto aplica para margin y padding */
+    /* si pongo 2 variables, la primera aplicará para 
+    arriba y abajo y la segunda para los costados*/
+    height:600px;
+    padding:10px 40px;
+    background: rgba(200,45,98,0.5) url('./fire.jfif');
+    background-repeat:repeat-x;
+}
+#caja2{
+    border:purple 2px solid;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    margin-top:20px;
+    margin-bottom:40px;
+    margin-left:50px;
+    margin-right:60px;
+    /* arriba(top) derecha(right) abajo(bottom) izq(left) */
+    padding: 20px 40px 60px 80px;
+    /* */
+    height:600px;
+    width:600px;
+    background-image:url('./icon.jfif');
+    background-repeat: repeat-y;
+}
+
+#caja3{
+    /* border-width:6px; */
+    border-top-width:2px;
+    border-right-width:1px;
+    border-left-width:1px;
+    border-bottom-width:6px;
+    border-color:rgb(180,50,120);
+    /* dotted, dashed,solid,double */
+    border-bottom-style:double;
+    border-top-style:dotted;
+    border-left-style:dashed;
+    border-right-style:dashed;
+
+    /* border-radius:20px; */
+    /* esq sup izq | esq sup der | esq inf der | esq inf izq */
+    /* border-radius:20px 40px 60px 80px; */
+    border-radius:15%;
+}

@@ -1,0 +1,30 @@
+/* Nosotros anterior vimos que se podia nombrar al color 
+por su nombre */
+h1{
+    color:green;
+    
+}
+/* pero la segunda manera va a usar una combinación de 
+ROJO VERDE Y AZUL */
+#rgb{
+    color:rgb(128,100,100);
+}
+/* los 2 primeros pares de números son Rojos, los segundos son Verdes
+y los terceros son azules, van desde 0 hasta F*/
+#hex{
+    color:#FF5628;
+}
+/* funciona de forma identica a rgb, pero usa un parámetro adicional
+que es la opacidad */
+#rgba{
+    color:rgba(20,20,240,0.3);
+}
+/* width es el ancho de mi contenedor y height va a ser la
+altura de mi contenedor */
+#tamanio{
+    width:300px;
+    height:400px;
+    border:1px solid;
+    /* overflow:hidden; */
+    overflow:scroll;
+}

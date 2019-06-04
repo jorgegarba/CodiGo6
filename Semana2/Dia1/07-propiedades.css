@@ -1,0 +1,41 @@
+body{
+    background-image:url('./textura.jpg');
+}
+/* text-shadow: color tamañosombraH , V, difuminación */
+h1{
+    text-shadow: rgb(128,128,128) 4px 4px 5px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color:red;
+}
+#sombra{
+    border:2px solid #225585;
+    /* box-shadow como mínimo necesita 2 valores */
+    /* el 3er valor será la difuminación de la sombra */
+    /* 4to valor será el tamaño de la sombra */
+    /*  el último valor sera el color de la sombra */
+    box-shadow:4px 4px 10px 10px #AF859F;
+    height:500px;
+    /* background-image:linear-gradient(-45deg,blue,red,yellow); */
+    /* -moz-   mozilla firefox
+        -webkit-     chrome
+            -o-        opera */
+    background:-webkit-radial-gradient(right,ELLIPSE,transparent,darkblue);
+
+}
+
+#imagen{
+    width:800px;
+    /* grayscale va de 0 a 1 en escala de grises */
+    /* filter:grayscale(1); */
+    /* cambia la saturación de colores de mi imagen 0 a 10 */
+    /* filter:saturate(5); */
+    /* cambiará el brillo de mi imagen de 0.1 a 10 */
+    /* filter:brightness(5); */
+    /* invertira mi imagen en negativo */
+    /* filter:invert(1); */
+    /* blur difuminará mi imagen 1 a 10 */
+    /* filter:blur(5px); */
+    /* cambiará el contraste de mi imagen 1 a 10 */
+    filter:contrast(5);
+}
+
