@@ -1,0 +1,29 @@
+*{
+   margin:0;
+   padding:0; 
+   /* con border-box, por mucho padding o borde
+   que tengas el tamaño se mantiene */
+   box-sizing:border-box;
+}
+header{
+    background-color:skyblue;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 3px 3px 5px black;
+    font-size:32px;
+    border-bottom:5px solid blue;
+    color:white;
+    padding:10px;
+    text-align:center;
+}
+section{
+    width:90%;
+    margin:0px 5%;
+}
+article{
+    border:10px solid gray;
+    padding:20px;
+    width:300px;
+    height:300px;
+    display:inline-block;
+    margin:5px;
+}

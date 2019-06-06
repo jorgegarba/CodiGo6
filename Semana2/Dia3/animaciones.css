@@ -1,0 +1,25 @@
+.miDiv{
+    width:200px;
+    height: 200px;
+    border:3px solid peru;
+    animation: miAnimacion 8s infinite normal none;
+}
+
+@keyframes miAnimacion{
+    0%{
+        background-color:red;
+        transform: translate(0%,0%);
+    }
+    25%{
+        background-color:gray;
+        border-radius:50%;
+        transform:translate(600px);
+    }
+    50%{
+        background-color:skyblue;
+        transform:translate(300px,500px) rotate(360deg);
+    }
+    100%{
+        background-color:blueviolet;
+    }
+}
