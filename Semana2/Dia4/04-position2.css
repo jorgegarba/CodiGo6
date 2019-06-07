@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+}
+.contenedor{
+    width: 500px;
+    height: 2000px;
+    border: 1px solid white;
+    position: relative;
+}
+.hijo{
+    width: 100px;
+    height: 100px;
+    border: 1px solid yellow;
+    background-color: yellow;
+    color: black;
+    position: fixed;
+    bottom: 0;
+}
+.hija{
+    width: 150px;
+    height: 150px;
+    border: 1px solid yellow;
+    background-color: pink;
+    color: black;
+}
+.hijastro{
+    width: 100px;
+    height: 100px;
+    border: 1px solid yellow;
+    background-color: blue;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+
+.linea{
+    width: 100%;
+    position: absolute;
+    height: 1px;
+    border-bottom: 1px solid yellow;
+    top:50%;
+}

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+}
+header{
+    background-color: bisque;
+    height: 10%;
+}
+section{
+    display: inline-block;
+}
+.s1, .s2{
+    height: 100%;
+}
+.s1{
+    background-color: brown;
+    width: 40%;
+}
+.s2{
+    background-color: burlywood;
+    width: 60%;
+}
+main{
+    height: 90%;
+    background-color: cyan;
+}

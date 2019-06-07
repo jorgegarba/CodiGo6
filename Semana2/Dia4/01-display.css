@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    height: 100%;
+}
+
+div.contenedor{
+    height: 100%;
+    /* width: calc(100%-2px); */
+    width: 100%;
+    border: 1px solid red;
+}
