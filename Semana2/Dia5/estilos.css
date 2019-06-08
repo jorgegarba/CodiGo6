@@ -1,0 +1,33 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;  
+}
+html,body{
+    height:100%;
+    background-color:gray;
+    
+}
+body{
+    padding-top:5%;
+    font-family: 'Poppins', sans-serif;
+}
+.contenedor{
+    height:350px;
+    width:350px;
+    border-radius:10px;
+    background-color:white;
+    /* box-shadow: sh sv tamaño color */
+    box-shadow:3px 3px 5px black;
+    margin:0 auto;
+    padding:0px 10px 10px 10px;
+}
+.avatar{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    border:3px solid steelblue;
+    position:relative;
+    left:130px;
+    top:-45px;
+}
