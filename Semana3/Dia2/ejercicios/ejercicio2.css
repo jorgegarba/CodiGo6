@@ -1,0 +1,69 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    /* border:1px solid red; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#papa{
+    display:flex;
+    flex-direction: column;
+}
+.cabecera{
+    display:flex;
+    flex-direction: column;
+}
+.menu{
+    display:flex;
+    width:100%;
+}
+.links{
+    flex-grow:7;
+}
+.rss{
+    flex-grow:1;
+}
+.logoname{
+    display:flex;
+}
+.logoname img{
+    width:50px;
+}
+.content{
+    display:flex;
+}
+.content{
+    display:flex;
+}
+.articulos{
+    flex-grow:2;
+    flex-wrap:wrap;
+    display:flex;
+    flex-direction: row;
+    padding-top:40px;
+}
+.articulo{
+    flex-grow:1;
+    flex-basis:40%;
+    margin:0 5%;
+    flex-shrink:1;
+    height:500px;
+    border:1px solid gray;
+}
+.aside{
+    flex-grow:1;
+    display:flex;
+    flex-direction:column;
+}
+.arriba{
+    height:50%;
+    background-image:url('http://lorempixel.com/500/500/cats');
+    background-position: center;
+}
+.abajo{
+    padding:20px;
+}
+.publicidad{
+    padding:20px;
+}

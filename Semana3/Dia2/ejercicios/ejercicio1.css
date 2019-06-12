@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html,body{
+    height:100%;
+}
+#papa{
+    height:100%;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+}
+.carta{
+    width:300px;
+    height:500px;
+    border:1px solid gray;
+    border-radius:5px;
+    display:flex;
+    flex-direction: column;
+}
+.arriba , .abajo{
+    flex-grow:1;
+    /* hacemos que no se encoja con el valor 0 */
+    flex-shrink:0;
+
+    flex-basis:50%;
+}
+.abajo{
+    padding:20px;
+    font-family:'Trebuchet MS', sans-serif;
+}
+.abajo p{
+    margin-top:15px;
+    font-size:16px;
+    text-align:justify;
+}
+.arriba{
+    background-image: url('http://lorempixel.com/300/300/cats');
+    border-radius:5px 5px 0 0;
+}
+input{
+    margin:5px 55px 0 55px;
+    width:150px;
+    height:30px;
+    border:0;
+    border-radius:5px;
+    padding:5px;
+    background-color:#2222ff;
+    color:white;
+    font-family:Arial;
+}

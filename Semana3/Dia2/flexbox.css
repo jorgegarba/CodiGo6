@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html,body{
+    height:100%;
+}
+#papa{
+    height:100%;
+
+    display:flex;
+    /* justify - content predeterminadamente va a ser
+    flex-start, flex-end, space-between, space-around
+    */
+    justify-content: space-evenly;
+    /* flex-direction: row, row-reverse, column, 
+    column-reverse 
+    TENER CUIDADO CON LA DISPOSICIÓN!!*/
+    flex-direction: row;
+    /* me alineaba de forma vertical mis elementos hijos */
+    align-items: flex-start;
+    /* flex-wrap va a permitir ocupar una segunda fila o columna con el valor wrap */
+    flex-wrap: nowrap;
+}
+.hijo{
+    border:steelblue 5px solid;
+    background-color: darkblue;
+    width:300px;
+    height:300px;
+    color:white;
+    font-size:30px;
+    /* flex-shrink:0 no va a dejar que se encoja y 1 si lo permitirá */
+    flex-shrink: 0;
+    flex-grow:1;
+
+}
+#mayor{
+    flex-grow:5;
+    flex-basis:500px;
+    
+    /* flex-grow flex-shrink flex-basis*/
+    flex:1 0 45%;
+}
