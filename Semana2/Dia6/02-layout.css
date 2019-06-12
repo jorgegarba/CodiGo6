@@ -1,0 +1,27 @@
+body, html{
+    height: 100%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    height: 85%;
+}
+header{
+    height: 15%;
+    background-color: aquamarine; 
+}
+.s1, .s2 {
+   float: left;
+   height: 100%;
+}
+.s1{
+    width: 80%;
+    background-color: tomato
+}
+.s2{
+    width: 20%;
+    background-color: brown;
+}

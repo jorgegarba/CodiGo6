@@ -1,0 +1,51 @@
+body, html{
+    height: 100%;
+}
+body{
+    background-color: #ccc;
+}
+.contenedor{
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+    width: 300px;
+    height: 300px;
+    box-shadow: 2px 2px 8px black;
+    border-radius: 10px;
+    background: #2980B9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+}
+.hijo{
+    height: 180px;
+    background-color: white;
+    position: relative;
+    top: 120px;
+}
+.avatar{
+    width: 70px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    border: 5px solid white;
+}
+.texto{
+    position: relative;
+    top:40px;
+    font-family: 'PT Sans', 'Arial', sans-serif;
+}
+.texto > h3, .texto > p{
+    text-align: center;
+}
+.texto>p{
+    margin: 0 15px;
+    padding: 10px 0px;
+}
+.texto > hr{
+    margin: 0 20px;
+    border: 1px solid #2980B9;
+}

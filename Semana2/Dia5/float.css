@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
 }
-body *{
+body *:not(.clear){
     border:1px solid blue;
 }
 .imagen2{
@@ -16,6 +16,7 @@ img{
     clear:both;
 }
 #contenedor{
-    border:1px solid blue;
+    border:1px solid pink;
     background-color:lightgrey;
+    height: 800px;
 }
