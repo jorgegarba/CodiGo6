@@ -33,9 +33,7 @@
 .content{
     display:flex;
 }
-.content{
-    display:flex;
-}
+
 .articulos{
     flex-grow:2;
     flex-wrap:wrap;

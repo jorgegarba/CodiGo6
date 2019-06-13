@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+html,body {
+  margin: 0;
+  height:100%;
+}
+#main {
+  display: flex;
+  height: 60%;
+}
+#main > article {
+  flex-grow: 2;
+}
+#main > nav,
+#main > aside {
+  /* recuerden que flex combina -> 
+    flex: flex-grow flex-shrink flex-basis */
+  flex: 0 0 20%;
+  background: beige;
+}
+
+header,
+footer,
+article,
+nav,
+aside {
+  padding: 15px;
+}
+header,
+footer {
+  background: yellowgreen;
+  height: 20%;
+}
