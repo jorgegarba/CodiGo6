@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+    width: 95%;
+    margin: 0 auto;
+}
+
+header{
+    height: 20%;
+    background-color: aqua;
+    margin-bottom: 5%;
+}
+.p1,.p2{
+    height: 37.5%;
+}
+
+.s1,.s2{
+    background-color: darkblue;
+    height: 100%;
+    width: 45%;
+}
+.s3,.s4,.s5{
+    width: 32%;
+    background-color: violet;
+    height: 100%;
+}
+.s5{
+    right: 2%;
+}
+.s5{
+    position: relative;
+}
+.s2,.s4,  .s5{
+    /* margin-left: 5%; */
+    float: right;
+}
+.s1,.s3{
+    float: left;
+}

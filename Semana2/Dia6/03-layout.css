@@ -1,0 +1,68 @@
+body, html{
+    height: 100%;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: pink;
+}
+header{
+    width: 95%;
+    height: 47.5%;
+    position: relative;
+    left: 2.5%;
+    margin-bottom: 2.5%;
+    background-color: tomato;   
+}
+.celeste{
+    height: 22.5%;
+    position: relative;
+    left: 2.5%;
+    width: 95%;
+    float: left;
+    margin-bottom: 2.5%
+}
+.celeste>section{
+    height: 100%;
+}
+.s1{
+    float: left;
+    background-color: lightblue;
+    width: 49%;
+}
+.s2{
+    float: right;
+    background-color: lightblue;
+    width: 49%;
+}
+
+.violeta{
+    width: 95%;
+    position: relative;
+    left: 2.5%;
+    height: 22.5%;
+    float: left;
+}
+.s3{
+    float: left;
+    width: 32%;
+    background-color: violet;
+    height: 100%;
+}
+.s4{
+    float: left;
+    width: 32%;
+    background-color: violet;
+    height: 100%;
+    margin-left: 2%;
+}
+.s5{
+    float: right;
+    width: 32%;
+    background-color: violet;
+    height: 100%;
+}
