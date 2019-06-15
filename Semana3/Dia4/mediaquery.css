@@ -1,0 +1,58 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial;
+}
+h1,p,figure,h2{
+    margin:1%;
+}
+img{
+    width:100%;
+}
+figure{
+    background-color:black;
+    border-radius:5px;
+    width:auto;
+    color:white;
+    padding:10px;
+    width:30%;
+   
+}
+h1::after{
+    content:"Importante!!!!";
+    color:red;
+}
+@media (max-width:1024px){
+    body{
+        background-color:aqua;
+        
+    }
+    figure{
+        margin:2%;
+        width:50%;
+        padding:10px;
+        display: inline-block;
+       
+    }
+}
+
+
+@media (max-width:600px){
+    body{
+        background-color:white;
+        
+    }
+    figure{
+        margin:2%;
+        width:95%;
+        padding:10px;
+    }
+    p{
+        text-align: justify;
+        line-height: 20px;
+    }
+}

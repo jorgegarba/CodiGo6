@@ -1,0 +1,34 @@
+EJERCICIOS
+
+1. Porque pagar a un adivino cuando puedes tener el tuyo propio?
+
+Guardar en variables, A. la cantidad de hijos, B. el nombre de su pareja  C. localizacion geografica D. trabajo
+
+=> Estarás casado con ______ tendrás _____ Hijos y viviran en _______ y estaras trabajando de _________
+
+2. Una empresa desea saber la edad del personal, pero solo tiene el año de nacimiento
+
+=>La edad del trabajador es: ____ ó ____
+
+3. A una persona se le cobrará por el uso de agua en su piscina, calcular el pago que realizara según el volumen, costo de metro cúbico y veces que llene de agua la piscina (Ud. ponga el costo por m3) (V = A x L x H)
+
+=> el pago por X metros cubicos, y N veces de llenado es: _____
+
+4. Realize el algoritmo para calcular el volumen de un cilindro, (Pi x r2 x H)
+
+=> el área del cilindro es : ____________________
+
+5. conversor de temperatura Celsius a Farenheit;
+
+X Celsius equivalen a ____ Farenheit;
+
+6. Con su plato favorito declare por cada ingrediente una variable con el valor de ese ingrediente y muestrelo en pantalla, finalizar con una descripción rápida de la preparación. recuerde usar \n para hacer saltos de linea
+
+=>      ::::::::MUGCAKE:::::::
+	a. 1/2 taza de leche de Leche
+	b. 1 Cucharadas de Cocoa en polvo
+	c. 3 Cucharadas harina preparada
+	d. Azucar al gusto
+	e. una cucharadita de harina en polvo
+	::::::PREPARACIÓN::::::
+	Mezcle todos los ingredientes y ponganlos al microondas por 3 minutos, puede cambiar la cocoa por ralladura de naranja o limón
