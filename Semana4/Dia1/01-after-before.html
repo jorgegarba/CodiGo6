@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            color: white;
+            background-color: black;
+        }
+
+        @keyframes rotar{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        h2::before{
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 1px solid white;
+            border-radius: 3px;
+            animation-name: rotar;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+
+        }
+        h2::after{
+            content: "";
+        }
+    </style>
+</head>
+<body>
+    <h2>titulo</h2>
+</body>
+</html>
