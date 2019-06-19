@@ -18,3 +18,6 @@ if(estacion == 1){
     rpta = "Error";
 }
 console.log(`Estamos en ${rpta}`);
+
+// EJERCICIOS PAGINA 88
+// -> 3.1, 3.3, 3.4, 3.5, 3.9, 
