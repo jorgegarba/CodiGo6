@@ -52,3 +52,6 @@ do{
             console.log("Error");
     }        
 }while(opcion != 10);
+
+// EJERCICIOS LIBRO PAG 138
+// 4.2, 4.3, 4.5, 4.9, 4.8
