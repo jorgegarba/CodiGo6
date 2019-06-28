@@ -1,27 +1,88 @@
+// {
+//     id: 1,
+//     nro: 1,
+//     precio: 5000,
+//     estado: "disponible"
+// },
 function Pabellon(nuevoNombre="Sin Nombre",nuevoFilas,nuevoColumnas,nuevoId) {
+    
     var objPabellon = {
         nombre: nuevoNombre,
         capacidad: nuevoFilas*nuevoColumnas,
         nro_filas: nuevoFilas,
         nro_col: nuevoColumnas,
         id: nuevoId,
-        nichos: [
-            {
-                id: 1,
-                nro: 1,
-                precio: 5000,
-                estado: "disponible"
-            },
-            {
-                id: 2,
-                nro: 2,
-                precio: 5500,
-                estado: "ocupado"
+        nichos: [{
+            id: 1,
+            nro: 1,
+            precio: 5000,
+            estado: "libre"
+        },{
+            id: 1,
+            nro: 1,
+            precio: 5000,
+            estado: "disponible"
+        },{
+            id: 1,
+            nro: 1,
+            precio: 5000,
+            estado: "libre"
+        },],
+        liberarPabellon: function(){
+            this.nichos = [];
+        },
+        repoblarPabellon:function(){
+            // 1. limpiar todos los nichos o borrarlos
+            this.liberarPabellon();
+            // 2. crear [CAPACIDAD] nichos
+            for(var i=0; i<this.capacidad; i++){
+                // RETO> Crear el objeto nicho 
+                // a partir de una clase constructora
+                // es decir una función
+                var objNicho = {
+                    precio: 0,
+                    estado:"libre",
+                    id:i+1,
+                    nro:i+1
+                }
+                this.nichos.push(objNicho);
             }
-        ]
+
+        },
+        consultarNichosLibres: function(){
+            var nichosLibres = 0;
+            // 1.recorrer el arreglo de nichos
+            for(var i=0; i<this.nichos.length; i++){
+                if(this.nichos[i].estado == "libre"){
+                    nichosLibres = nichosLibres + 1;
+                }
+            }
+            console.log(`Nichos libres del pabellon ${this.nombre}=> ${nichosLibres}`);
+            // 2.preguntar si el nicho esta libre
+            // 3. si el el nicho esta libre
+            // contar el nicho libre
+            // 4. al final de recorrer los nichos
+            // mostrar la cantidad contada
+        },
+        
     }
     return objPabellon;
+
 }
+
+var pabellonSanJorge = Pabellon("San Jorge",5,4,1);
+var pabellonSanFelipe = Pabellon("San Felipe",10,10,2);
+
+pabellonSanFelipe.repoblarPabellon();
+pabellonSanFelipe.consultarNichosLibres();
+
+pabellonSanJorge.repoblarPabellon();
+pabellonSanJorge.consultarNichosLibres();
+
+// pabellonSanFelipe.consultarNichosLibres();
+
+
+
 
 // Desarrollar las siguientes funciones
 
