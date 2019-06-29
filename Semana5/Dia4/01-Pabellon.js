@@ -28,6 +28,19 @@ function Pabellon(nuevoNombre="Sin Nombre",nuevoFilas,nuevoColumnas,nuevoId) {
             precio: 5000,
             estado: "libre"
         },],
+        venderNicho:function(idNicho){
+            for(var i = 0; i < this.nichos.length; i++){
+                if(this.nichos[i].id == idNicho){
+                    if(this.nichos[i].estado === "libre"){
+                        this.nichos[i].estado = "ocupado";
+                        console.log("Hecho!, El nicho se ha vendido correctamente");
+                    }else{
+                        console.log("Error!, este nicho no se puede vender");
+                    }
+                    break;
+                }
+            }
+        },
         liberarPabellon: function(){
             this.nichos = [];
         },
@@ -39,6 +52,7 @@ function Pabellon(nuevoNombre="Sin Nombre",nuevoFilas,nuevoColumnas,nuevoId) {
                 // RETO> Crear el objeto nicho 
                 // a partir de una clase constructora
                 // es decir una función
+                // var objNicho = Nicho(0,"libre",i+1,i+1);
                 var objNicho = {
                     precio: 0,
                     estado:"libre",
@@ -47,7 +61,6 @@ function Pabellon(nuevoNombre="Sin Nombre",nuevoFilas,nuevoColumnas,nuevoId) {
                 }
                 this.nichos.push(objNicho);
             }
-
         },
         consultarNichosLibres: function(){
             var nichosLibres = 0;
@@ -79,7 +92,17 @@ pabellonSanFelipe.consultarNichosLibres();
 pabellonSanJorge.repoblarPabellon();
 pabellonSanJorge.consultarNichosLibres();
 
-// pabellonSanFelipe.consultarNichosLibres();
+pabellonSanFelipe.venderNicho(5);
+pabellonSanFelipe.venderNicho(50);
+pabellonSanFelipe.venderNicho(45);
+pabellonSanFelipe.venderNicho(35);
+pabellonSanFelipe.venderNicho(15);
+pabellonSanFelipe.venderNicho(50);
+
+pabellonSanFelipe.consultarNichosLibres();
+
+
+
 
 
 
