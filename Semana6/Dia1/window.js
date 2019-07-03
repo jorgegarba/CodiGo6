@@ -1,8 +1,8 @@
 //window es un objeto que se crea junto con nuestra página web
 //y contiene toda la información del navegador
-//Este objeto es global
+//Este objeto es global!
 
-//Me dará la dirección de donde nos encontramos
+//Me dará la dirección donde nos encontramos
 console.log(window.location.href);
 
 //Me va a dar la altura y ancho de mi ventana respectivamente
@@ -14,7 +14,7 @@ console.log("Ancho de mi Ventana " + window.outerWidth);
 console.log("Alto sin ScrollBar " + window.innerHeight);
 console.log("Ancho sin ScrollBar " + window.innerWidth);
 
-//Posición ScrollBar
+//Posición ScrollBar en Horizontal y Vertical
 console.log("Posicion ScrollBar Eje X" + window.pageXOffset);
 console.log("Posicion ScrollBar Vertical" + window.pageYOffset);
 
