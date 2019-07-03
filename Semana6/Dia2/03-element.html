@@ -26,6 +26,45 @@
             top: 40px;
             left: 50px;
         }
+        .redondo{
+            width:200px;
+            height:200px;
+            border: 2px solid tomato;
+            box-shadow: 8px 8px 8px #ccc;
+            position: relative;
+            top: 40px;
+            left: 50px;
+            border-radius:50%;
+        }
+        #miDiv{
+            height:250px;
+            width:250px;
+            overflow:auto;
+            position: relative;
+            top:65px;
+        }
+        #contenido{
+            height:800px;
+            width:2000px;
+            background-color:peru;
+        }
+        #botoncito,#cambiarClase,#multiclase,#agregarClase{
+            position:relative;
+            top:65px;
+        }
+        .borde{
+            border:2px solid blue;
+        }
+        .fondo{
+            background-color:firebrick;
+        }
+        #multiclase{
+            width:60px;
+            height:60px;
+        }
+        .margen{
+            margin:50px;
+        }
     </style>
 </head>
 
@@ -33,6 +72,26 @@
 
     <div class="cuadrado" id="cuadrado">
 
+    </div>
+    <div id="multiclase" class="borde fondo">
+
+    </div>
+    <button id="botoncito">
+        Presioname!
+    </button>
+    <button id="cambiarClase">
+        Cambiar Claseeeee
+    </button>
+    <button id="agregarClase">
+        Agregando una Clase
+    </button>
+    <div id="miDiv">
+        <div id = "contenido">
+            Algo de Texto Aleatorio
+            <br>
+            <br>
+            Más Texto Aleatorio
+        </div>
     </div>
 
     <script src="./03-element.js"></script>
