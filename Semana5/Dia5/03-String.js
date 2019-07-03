@@ -46,8 +46,6 @@ for (let i = 0; i < nombre.length; i++) {
 // o minusculas de una cadena de texto
 
 var minusculas = nombre.toLowerCase();
-
-
 var vocales = 0;
 for(var i=0; i<minusculas.length;i++){
     if(minusculas.charAt(i) == "a" ||
