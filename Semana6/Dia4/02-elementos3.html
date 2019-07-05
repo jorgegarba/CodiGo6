@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            background-color: #444444;
+            color: azure;
+        }
+
+        @keyframes roteishon{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        .item::before{
+            position: relative;
+            top: -2px;
+            content: "";
+            display: inline-block;
+            animation-timing-function: linear;
+            animation-name: roteishon;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            
+            width: 5px;
+            height: 5px;
+            margin-right: 5px;
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+
+    <main id="principal">
+        <!-- <ul>
+                <li>Mazda</li>
+                <li>audi</li>
+                <li>toyota</li>
+                <li>nissan</li>
+            </ul> -->
+    </main>
+    
+    <script src="./02-elementos3.js"></script>
+</body>
+</html>
