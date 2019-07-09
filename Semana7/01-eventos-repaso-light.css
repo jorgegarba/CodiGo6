@@ -1,0 +1,17 @@
+body{
+    background-color: #dddddd;
+}
+ul{
+    list-style: none;
+    background-color: #cccccc;
+    color: #444444;
+}
+li{
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+li:hover{
+    background-color: #444444;
+    color: #cccccc;
+}

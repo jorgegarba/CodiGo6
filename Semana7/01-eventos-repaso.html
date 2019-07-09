@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"
+            href="./01-eventos-repaso-dark.css"
+            id="estilos">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body, html{
+            height: 100%;
+        }
+        main{
+            height: 95%;
+            position: relative;
+        }
+        header{
+            height: 5%;
+        }
+        .boton{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li id="liDark">Dark</li>
+                <li id="liLight">Light</li>
+            </ul>
+        </nav>
+    </header>
+    <main id="principal">
+        <button class="boton" id="btnCentral">
+            Click
+        </button>
+    </main>
+
+    <script src="./01-eventos-repaso.js"></script>
+</body>
+</html>
