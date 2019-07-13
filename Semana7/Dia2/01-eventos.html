@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height:100%;
+        }
+        body{
+            background-color:black;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 549px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+        }
+        #lapicero{
+            position:relative;
+            left:0;
+            top:0;
+            
+        }
+        label{
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    <script src="01-eventos.js"></script>
+</head>
+
+<body>
+    <!-- <img src="pencil.png" id="lapicero"> -->
+    <label>Cambiar color: </label>
+    <input type="color" id="colorselector">
+    <label id="colorhex"></label>
+</body>
+</html>
