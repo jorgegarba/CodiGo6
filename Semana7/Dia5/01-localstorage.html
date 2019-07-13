@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="01-localstorage.js"></script>
+    <style> 
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            height:100%;
+        }
+        body{
+            padding:100px;
+        }
+    </style>
+</head>
+
+<body id="cuerpo">
+    <h1>Registro de Usuario</h1>
+
+    <form>
+        <fieldset>
+            <legend>Ingrese sus Datos</legend>
+            <table>
+                <tr>
+                    <td><label for="inputNombre">Nombres:</label></td>
+                    <td><input type="text" id="inputNombre"></td>
+                </tr>
+                <tr>
+                    <td><label for="inputApellido">Apellidos:</label></td>
+                    <td><input type="text" id="inputApellido"></td>
+                </tr>
+                <tr>
+                    <td><label>Color Favorito:</label></td>
+                    <td><input type="color" id="inputColor"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Guardar Datos" id="inputGuardar">
+                    </td>
+                    <td><button id="btnBorrar">Borrar Storage</button></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    
+</body>
+</html>

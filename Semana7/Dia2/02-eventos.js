@@ -30,7 +30,7 @@ window.onload = function(){
     var selectTipo = document.getElementById("tipocomida");
     selectComida.onchange = function(){
         selectTipo.removeAttribute("disabled");
-        
+        selectTipo.innerHTML = "";
         // if(selectComida.value)
         //Con esto evaluamos el valor de selectComida para asegurarnos que de verdad haya una opción seleccionada
         if(this.value != 0){
@@ -46,7 +46,15 @@ window.onload = function(){
                         //y lo añadimos como hijo del select 
                         selectTipo.appendChild(opcion);
                     }
-                break;    
+                break; 
+                case 'cc':
+                    for(var i=0;i<comidaCasera.length;i++){
+                        var opcion = document.createElement("option");
+                        opcion.innerHTML = `${comidaCasera[i]}`;
+                        opcion.setAttribute("value",comidaCasera[i].charAt(0));
+                        selectTipo.appendChild(opcion);
+                    } 
+                break;  
             }
         }
     }
