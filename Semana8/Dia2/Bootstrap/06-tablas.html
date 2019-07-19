@@ -7,14 +7,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <style>
+        .boton{
+            position: fixed;
+            height: 100px;
+            width: 100px;
+            bottom: 15px;
+            right: 15px;
+            background-color: tomato;
+            border-radius: 50%;
+            border: 0;
+        }
+    </style>
     <title>Document</title>
+
+    <script>
+        window.onload = function(){
+            var btnDark = document.getElementById("btnDark");
+            btnDark.onclick = function(){
+                var miTabla = document.getElementById("miTabla");
+                // contains() => funcion que retorna "true" o "false"
+                // si es que posee el nombre la clase entrega a
+                // dicha funcion
+                var resultado = miTabla.classList.contains("table-dark");
+                if(resultado === true){
+                    miTabla.classList.remove("table-dark");
+                }else{
+                    miTabla.classList.add("table-dark");
+                }
+                
+            }
+        }
+    </script>
+
 </head>
+
 <body>
-    
-    <main class="container-fluid">
+
+    <main class="container">
         <h3>Tabla simple <code>class="table"</code></h3>
-        <table class="table">
+        <table class="table" id="miTabla">
             <thead>
                 <tr>
                     <th>Cabecera 01</th>
@@ -58,11 +90,401 @@
                 </tr>
             </tfooter>
         </table>
+        <hr />
+
+        <h3>Tabla simple con estilo dark <code>class="table table-dark"</code></h3>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Cabecera 01</th>
+                    <th>Cabecera 02</th>
+                    <th>Cabecera 03</th>
+                    <th>Cabecera 04</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td>Pie de tabla 01</td>
+                    <td>Pie de tabla 02</td>
+                    <td>Pie de tabla 03</td>
+                    <td>Pie de tabla 04</td>
+                </tr>
+            </tfooter>
+        </table>
+        <hr />
+
+        <h3>Tabla simple con colores alternos <code>class="table table-striped"</code></h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Cabecera 01</th>
+                    <th>Cabecera 02</th>
+                    <th>Cabecera 03</th>
+                    <th>Cabecera 04</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td>Pie de tabla 01</td>
+                    <td>Pie de tabla 02</td>
+                    <td>Pie de tabla 03</td>
+                    <td>Pie de tabla 04</td>
+                </tr>
+            </tfooter>
+        </table>
+        <hr />
+
+        <h3>Tabla simple con bordes en todas las celdas
+            <code>class="table table-bordered"</code>
+        </h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Cabecera 01</th>
+                    <th>Cabecera 02</th>
+                    <th>Cabecera 03</th>
+                    <th>Cabecera 04</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td>Pie de tabla 01</td>
+                    <td>Pie de tabla 02</td>
+                    <td>Pie de tabla 03</td>
+                    <td>Pie de tabla 04</td>
+                </tr>
+            </tfooter>
+        </table>
+        <hr />
+
+        <h3>Tabla simple con efecto "hover"
+            <code>class="table table-hover"</code>
+        </h3>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Cabecera 01</th>
+                    <th>Cabecera 02</th>
+                    <th>Cabecera 03</th>
+                    <th>Cabecera 04</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td>Pie de tabla 01</td>
+                    <td>Pie de tabla 02</td>
+                    <td>Pie de tabla 03</td>
+                    <td>Pie de tabla 04</td>
+                </tr>
+            </tfooter>
+        </table>
+        <hr />
+
+        <h3>Tabla con tamaño reducido
+            <code>class="table table-sm"</code>
+        </h3>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Cabecera 01</th>
+                    <th>Cabecera 02</th>
+                    <th>Cabecera 03</th>
+                    <th>Cabecera 04</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td>Pie de tabla 01</td>
+                    <td>Pie de tabla 02</td>
+                    <td>Pie de tabla 03</td>
+                    <td>Pie de tabla 04</td>
+                </tr>
+            </tfooter>
+        </table>
+        <hr />
+
+        <h3>Tabla con estilos combinados</h3>
+        <table class="table table-dark table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Cabecera 01</th>
+                    <th>Cabecera 02</th>
+                    <th>Cabecera 03</th>
+                    <th>Cabecera 04</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr>
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td>Pie de tabla 01</td>
+                    <td>Pie de tabla 02</td>
+                    <td>Pie de tabla 03</td>
+                    <td>Pie de tabla 04</td>
+                </tr>
+            </tfooter>
+        </table>
+        <hr />
+
+        <h1>Tabla con diferentes colores de fila</h1>
+        <table class="table">
+            <thead>
+                <tr class="table-success">
+                    <th>Cabecera 01</th>
+                    <th>Cabecera 02</th>
+                    <th>Cabecera 03</th>
+                    <th>Cabecera 04</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-danger">
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr class="table-secondary">
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr class="table-warning">
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr class="table-info">
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td>Pie de tabla 01</td>
+                    <td>Pie de tabla 02</td>
+                    <td>Pie de tabla 03</td>
+                    <td>Pie de tabla 04</td>
+                </tr>
+            </tfooter>
+        </table>
+        <hr />
+
+        <h1>Tabla responsiva
+            <code>class="table-responsive-[xl|lg|md|sm]"</code>
+        </h1>
+        <table class="table table-responsive-lg">
+            <thead>
+                <tr class="table-success">
+                    <th>Cabecera 01</th>
+                    <th>Cabecera 02</th>
+                    <th>Cabecera 03</th>
+                    <th>Cabecera 04</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-danger">
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr class="table-secondary">
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr class="table-warning">
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+                <tr class="table-info">
+                    <td>Contenido 01</td>
+                    <td>Contenido 02</td>
+                    <td>Contenido 03</td>
+                    <td>Contenido 04</td>
+                </tr>
+            </tbody>
+            <tfooter>
+                <tr>
+                    <td>Pie de tabla 01</td>
+                    <td>Pie de tabla 02</td>
+                    <td>Pie de tabla 03</td>
+                    <td>Pie de tabla 04</td>
+                </tr>
+            </tfooter>
+        </table>
+
+        <button class="boton" id="btnDark">
+            +
+        </button>
+
     </main>
 
 
-    
 
+
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
