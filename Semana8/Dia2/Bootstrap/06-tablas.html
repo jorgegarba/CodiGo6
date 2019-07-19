@@ -35,7 +35,35 @@
                 }else{
                     miTabla.classList.add("table-dark");
                 }
-                
+            }
+            
+            var btnInsertar = document.getElementById("btnInsertar");
+            btnInsertar.onclick = function(){
+                var input1 = document.getElementById("input1").value;
+                var input2 = document.getElementById("input2").value;
+                var input3 = document.getElementById("input3").value;
+                var input4 = document.getElementById("input4").value;
+
+                var tablaBody = document.getElementById("tablaBody");
+
+                var tr = document.createElement("tr");
+                var td1 = document.createElement("td");
+                var td2 = document.createElement("td");
+                var td3 = document.createElement("td");
+                var td4 = document.createElement("td");
+
+                td1.innerHTML = input1;
+                td2.innerHTML = input2;
+                td3.innerHTML = input3;
+                td4.innerHTML = input4;
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+
+                tablaBody.appendChild(tr);
+
             }
         }
     </script>
@@ -55,7 +83,7 @@
                     <th>Cabecera 04</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tablaBody">
                 <tr>
                     <td>Contenido 01</td>
                     <td>Contenido 02</td>
@@ -90,6 +118,11 @@
                 </tr>
             </tfooter>
         </table>
+        <input type="text" id="input1">
+        <input type="text" id="input2">
+        <input type="text" id="input3">
+        <input type="text" id="input4">
+        <button id="btnInsertar"> Insertar </button>
         <hr />
 
         <h3>Tabla simple con estilo dark <code>class="table table-dark"</code></h3>
