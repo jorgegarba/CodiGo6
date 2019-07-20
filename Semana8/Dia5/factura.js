@@ -32,12 +32,16 @@ window.onload = function(){
         var facturaJSON = JSON.parse(facturaTexto);
 
         // console.log(facturaJSON);
+        //igualo facturaJSON a objFactura, para poder seguir trabajando con los mismos datos
+        objFactura = facturaJSON;
 
         var arregloProductos = facturaJSON.listadoProductos;
         // console.log(arregloProductos);
 
         //forEach recorrerá todo el arreglo y recibirá como parámetro una función Anónima
         arregloProductos.forEach(function(producto){
+            console.log(producto);
+            
             var tr = document.createElement("tr");
             // console.log(producto.precioUnitario);
             var td1 = document.createElement("td");
