@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script>
+        window.onload = function(){
+            var inputNombre = document.getElementById("inputNombre");
+            var helperNombre = document.getElementById("helperNombre");
+            inputNombre.onkeyup = function(){
+                var tamanio = inputNombre.value.length;
+                if(tamanio < 10){
+                    inputNombre.classList.add("is-invalid");
+                    inputNombre.classList.remove("is-valid");
+                    
+                    helperNombre.classList.add("text-danger");
+                    helperNombre.classList.remove("text-success");
+
+                }else{
+                    inputNombre.classList.add("is-valid");
+                    inputNombre.classList.remove("is-invalid");
+
+                    helperNombre.classList.add("text-success");
+                    helperNombre.classList.remove("text-danger");
+                }
+            }
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+
+    <main class="container-fluid ">
+
+        <h4>Formulario Vertical</h4>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <form autocomplete="off" class="row">
+                    <div class="form-group col-md-12">
+                        <label for="inputNombre">Nombre y Apellidos</label>
+                        <input type="text"
+                                placeholder="Ejm: Juan Pérez"
+                                class="form-control"
+                                id="inputNombre">
+                        <small class="form-text" id="helperNombre">
+                            Ingresa al menos 10 caracteres
+                        </small>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="inputPassword">Contraseña</label>
+                        <input type="password"
+                                placeholder="Ingrese Contraseña"
+                                class="form-control"
+                                id="inputPassword">
+                        <small class="form-text text-muted">
+                            Mínimo una mayúscula y una minúscula
+                        </small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="col-md-6">
+                texto2
+            </div>
+        </div>
+
+    </main>
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
