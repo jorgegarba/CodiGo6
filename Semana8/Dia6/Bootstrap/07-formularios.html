@@ -9,19 +9,22 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script>
-        window.onload = function(){
+        window.onload = function () {
             var inputNombre = document.getElementById("inputNombre");
             var helperNombre = document.getElementById("helperNombre");
-            inputNombre.onkeyup = function(){
+            var helperMensaje = document.getElementById("helperMensaje");
+            var inputMensaje = document.getElementById("inputMensaje");
+
+            inputNombre.onkeyup = function () {
                 var tamanio = inputNombre.value.length;
-                if(tamanio < 10){
+                if (tamanio < 10) {
                     inputNombre.classList.add("is-invalid");
                     inputNombre.classList.remove("is-valid");
-                    
+
                     helperNombre.classList.add("text-danger");
                     helperNombre.classList.remove("text-success");
 
-                }else{
+                } else {
                     inputNombre.classList.add("is-valid");
                     inputNombre.classList.remove("is-invalid");
 
@@ -29,42 +32,140 @@
                     helperNombre.classList.remove("text-danger");
                 }
             }
+
+            inputMensaje.onkeyup = function () {
+                var quedan = 50 - inputMensaje.value.length;
+                helperMensaje.innerHTML = `Quedan ${quedan} caracteres`;
+            }
         }
     </script>
     <title>Document</title>
 </head>
+
 <body>
 
     <main class="container-fluid ">
 
         <h4>Formulario Vertical</h4>
-        
+
         <div class="row">
             <div class="col-md-6">
                 <form autocomplete="off" class="row">
                     <div class="form-group col-md-12">
                         <label for="inputNombre">Nombre y Apellidos</label>
-                        <input type="text"
-                                placeholder="Ejm: Juan Pérez"
-                                class="form-control"
-                                id="inputNombre">
+                        <input type="text" placeholder="Ejm: Juan Pérez" class="form-control" id="inputNombre">
                         <small class="form-text" id="helperNombre">
                             Ingresa al menos 10 caracteres
                         </small>
                     </div>
                     <div class="form-group col-md-12">
                         <label for="inputPassword">Contraseña</label>
-                        <input type="password"
-                                placeholder="Ingrese Contraseña"
-                                class="form-control"
-                                id="inputPassword">
+                        <input type="password" placeholder="Ingrese Contraseña" class="form-control" id="inputPassword">
                         <small class="form-text text-muted">
                             Mínimo una mayúscula y una minúscula
                         </small>
                     </div>
                     <div class="form-group col-md-6">
-                        
+                        <label for="inputMensaje">Escriba un mensaje</label>
+                        <textarea id="inputMensaje" cols="30" rows="10" class="form-control"
+                            placeholder="Escriba un mensaje..." maxlength="50"></textarea>
+                        <small class="text-muted" id="helperMensaje">
+                            Quedan 50 caracteres...
+                        </small>
                     </div>
+                    <div class="form-group col-md-6">
+                        <label for="">Elija Idioma</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" id="es">
+                                </div>
+                            </div>
+                            <label for="es" class="form-control">
+                                Español
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" id="en">
+                                </div>
+                            </div>
+                            <label for="en" class="form-control">
+                                English
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" id="por">
+                                </div>
+                            </div>
+                            <label for="por" class="form-control">
+                                Portugués
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="">Eliga Turno</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" id="ma" name="inputTurno" checked>
+                                </div>
+                            </div>
+                            <label for="ma" class="form-control">
+                                Mañana
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" id="ta" name="inputTurno">
+                                </div>
+                            </div>
+                            <label for="ta" class="form-control">
+                                Tarde
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" id="no" name="inputTurno">
+                                </div>
+                            </div>
+                            <label for="no" class="form-control">
+                                Noche
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="selectPais">Elija País</label>
+                        <select name="" id="selectPais" class="form-control">
+                            <option value="p">Perú</option>
+                            <option value="e">España</option>
+                            <option value="a">Argentina</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="selectCursos">Elija Cursos</label>
+                        <select name="" id="selectCursos" class="form-control" multiple>
+                            <option value="poo">Programacion Orientada a Objetos</option>
+                            <option value="ia">Inteligencia Artificial</option>
+                            <option value="md">Mineria de Datos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group col-md-12">
+                        <button class="btn btn-primary">
+                            Registrarme
+                        </button>
+                    </div>
+
 
                 </form>
 
@@ -77,7 +178,7 @@
     </main>
 
 
-    
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
