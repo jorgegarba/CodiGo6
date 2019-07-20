@@ -21,6 +21,9 @@ window.onload = function(){
     var inputProd = document.getElementById("inputProd");
     var inputPrecio = document.getElementById("inputPrecio");
     var btnAgregar = document.getElementById("btnAgregar");
+    var tdTotal = document.getElementById("tdTotal");
+    
+    var totalFactura = 0;
 
     //Estamos cambiando los valores de las propiedades del objeto factura con el valor de los input.
     btnAgregar.addEventListener("click",function(){
@@ -44,6 +47,9 @@ window.onload = function(){
         td3.innerHTML = inputPrecio.value;
         td4.innerHTML = parseInt(inputCant.value) * parseFloat(inputPrecio.value);
         
+        //AQUI CAMBIAREMOS EL VALOR TOTAL DE LA FACTURA
+        totalFactura = totalFactura + parseInt(inputCant.value)*parseFloat(inputPrecio.value);
+        tdTotal.innerHTML = totalFactura;
 
         //agregamos cada columna ya con su contenido como elemento hijo de la fila
         tr.appendChild(td1);
