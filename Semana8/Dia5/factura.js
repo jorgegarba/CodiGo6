@@ -22,8 +22,45 @@ window.onload = function(){
     var inputPrecio = document.getElementById("inputPrecio");
     var btnAgregar = document.getElementById("btnAgregar");
     var tdTotal = document.getElementById("tdTotal");
-    
+
     var totalFactura = 0;
+
+    function obtenerFactura(){
+        //obtenemos nuestro objeto en texto del localStorage
+        var facturaTexto = localStorage.getItem("objFactura");
+        //Y aquí lo convertimos de nuevo a un objeto
+        var facturaJSON = JSON.parse(facturaTexto);
+
+        // console.log(facturaJSON);
+
+        var arregloProductos = facturaJSON.listadoProductos;
+        // console.log(arregloProductos);
+
+        //forEach recorrerá todo el arreglo y recibirá como parámetro una función Anónima
+        arregloProductos.forEach(function(producto){
+            var tr = document.createElement("tr");
+            // console.log(producto.precioUnitario);
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+            var td3 = document.createElement("td");
+            var td4 = document.createElement("td");
+
+            td1.innerHTML = producto.cantidad;
+            td2.innerHTML = producto.producto;
+            td3.innerHTML = producto.precioUnitario;
+            td4.innerHTML = producto.valorVenta;
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tProductos.appendChild(tr);
+        });
+        
+
+    }
+
+    obtenerFactura();
 
     //Estamos cambiando los valores de las propiedades del objeto factura con el valor de los input.
     btnAgregar.addEventListener("click",function(){
@@ -50,6 +87,10 @@ window.onload = function(){
         //AQUI CAMBIAREMOS EL VALOR TOTAL DE LA FACTURA
         totalFactura = totalFactura + parseInt(inputCant.value)*parseFloat(inputPrecio.value);
         tdTotal.innerHTML = totalFactura;
+        //Agregamos el valor a nuestra objFactura
+        objFactura.total = totalFactura;
+
+        
 
         //agregamos cada columna ya con su contenido como elemento hijo de la fila
         tr.appendChild(td1);
@@ -72,6 +113,11 @@ window.onload = function(){
 
         objFactura.listadoProductos.push(objProducto);
         console.log(objFactura);
+
+        var facturaConvertida = JSON.stringify(objFactura);
+        
+        //Guardamos nuestro objeto en el localStorage
+        localStorage.setItem("objFactura",facturaConvertida);
 
         //Limpiamos el input
         inputCant.value = "";
