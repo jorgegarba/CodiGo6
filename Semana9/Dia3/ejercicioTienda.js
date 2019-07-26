@@ -70,3 +70,4 @@ window.onload = function(){
     });
     row.innerHTML = divProducto;
 }
+
