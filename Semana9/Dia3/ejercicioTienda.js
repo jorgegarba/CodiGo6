@@ -45,6 +45,17 @@ window.onload = function(){
         }
     ];
 
+    //esta función recibira una ID del producto para evaluarlo
+    //con los id's de nuestro arreglo
+    function buscarProducto(idProducto){
+        for(let i = 0;i<productos.length;i++){
+            if(productos[i].id == idProducto){
+                //retornamos el producto que coincida con el ID
+                return productos[i];
+            }
+        }
+    }
+
     var row = document.createElement("div");
     row.className = "row";
     main.appendChild(row);
@@ -69,5 +80,41 @@ window.onload = function(){
                         </div>`
     });
     row.innerHTML = divProducto;
+    //----------
+    var botones = document.querySelectorAll(".click");
+    console.log(botones);
+    
+    for(var i=0; i<botones.length;i++){
+
+        botones[i].onclick = function(){
+            //vamos a vaciar el contenido del modal
+            modalTitulo.innerHTML = "";
+            modalDescripcion.innerHTML = "";
+            modalImagen.setAttribute("src","");
+
+            var idProducto = this.getAttribute("idproducto");
+            console.log(idProducto);
+
+            var productoEncontrado = buscarProducto(idProducto); //un objeto que coincida con el ID
+
+            // if(productoEncontrado = null)
+            if(!productoEncontrado){
+                console.log("error producto no encontrado");
+                location.reload();
+            }else{
+                //mostramos el modal mediante Jquery
+                $("#miModal").modal("show");
+                //Actualizabamos el contenido del modal
+                modalTitulo.innerHTML = productoEncontrado.nombre;
+
+                modalDescripcion.innerHTML = productoEncontrado.descripcion;
+
+                modalImagen.setAttribute("src",productoEncontrado.imagen);
+            }
+        }
+
+        
+
+    }
 }
 
