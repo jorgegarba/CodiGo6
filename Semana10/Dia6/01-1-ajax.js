@@ -28,8 +28,6 @@ window.onload = function(){
 
                 //la data la obtendremos en el responseText como binario
             }
-
-
         }
 
         xhr.onloadstart = function(){
@@ -47,4 +45,5 @@ window.onload = function(){
         //activamos el evento send();
         xhr.send(null);
     }
+
 }
