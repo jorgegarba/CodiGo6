@@ -64,31 +64,31 @@ window.onload = function(){
 
         // onreadystatechange estará pendiente del readyState
         xhr.onreadystatechange = function () { 
-            switch (xhr.readyState){
-                case 1:
-                    console.log("se ha ejecutado la función open()");
-                    break;
-                case 2:
-                    console.log("se ha disparado una petición http");
-                    break;
-                case 3:
-                    console.log("ya estamos descargando los datos");
-                    break;
-                case 4:
-                    console.log("ya tenemos los datos, la operación terminó");
-                    // Documentación de los estados
-                    //https://www.tutorialspoint.com/http/http_status_codes
-                    // https://es.wikipedia.org/wiki/Anexo:C%C3%B3digos_de_estado_HTTP
-                    console.log("el codigo de estado es: " + xhr.status);
-                    var json = JSON.parse(xhr.responseText);
+                switch (xhr.readyState){
+                    case 1:
+                        console.log("se ha ejecutado la función open()");
+                        break;
+                    case 2:
+                        console.log("se ha disparado una petición http");
+                        break;
+                    case 3:
+                        console.log("ya estamos descargando los datos");
+                        break;
+                    case 4:
+                        console.log("ya tenemos los datos, la operación terminó");
+                        // Documentación de los estados
+                        //https://www.tutorialspoint.com/http/http_status_codes
+                        // https://es.wikipedia.org/wiki/Anexo:C%C3%B3digos_de_estado_HTTP
+                        console.log("el codigo de estado es: " + xhr.status);
+                        var json = JSON.parse(xhr.responseText);
 
-                    console.log("el contenido de la solicitud es: ", json.data);
-                    ponerDatos(json.data);
-                    break;
-                default:
-                    console.log("Ha ocurrido un error inesperado");
+                        console.log("el contenido de la solicitud es: ", json.data);
+                        ponerDatos(json.data);
+                        break;
+                    default:
+                        console.log("Ha ocurrido un error inesperado");
+                }
             }
-         }
         //  .open recibirá como variables el tipo de petición (GET, POST) y la dirección URL de la API que nos dará los datos
         //llegará hasta 1 (readyState)
          xhr.open("GET","https://reqres.in/api/users?page=4");
