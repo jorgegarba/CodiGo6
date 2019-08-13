@@ -84,10 +84,11 @@ window.onload = function () {
                 // botonVer.setAttribute("data-target","#modalMapa");
                 botonVer.onclick = function () {
                     $('#modalMapa').modal('show');
+                    // centrar el mapa en una coordenada especifica
+                    map.setCenter(new google.maps.LatLng(elemento.lat,elemento.lon));
                 };
 
                 tr.appendChild(botonVer);
-
 
                 cuerpo.appendChild(tr);
             });
@@ -102,11 +103,13 @@ window.onload = function () {
         // la variable map es la referencia al mapa de google
         map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: -34.397, lng: 150.644 },
-            zoom: 8
+            zoom: 15
         });
     }
 
     initMap();
+
+
 
 
 }
