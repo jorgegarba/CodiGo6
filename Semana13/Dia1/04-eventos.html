@@ -12,6 +12,13 @@
         integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.16.2/dist/sweetalert2.min.css">
+    <style>
+        .activo {
+            color: aqua;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,17 +55,41 @@
     <main class="container">
         <div class="row mt-5">
             <div class="col-md-6">
-                <button class="btn btn-primary">
+                <button class="btn btn-primary" id="btnWhisky">
                     <p>
-                        <i class="fas fa-wine-bottle fa-3x"></i>
+                        <i class="fa fa-glass fa-3x"></i>
                     </p>
                     <p>
                         Whisky
                     </p>
                 </button>
+                <button class="btn btn-primary" id="btnRon">
+                    <p>
+                        <i class="fas fa-wine-bottle fa-3x"></i>
+                    </p>
+                    <p>
+                        Ron
+                    </p>
+                </button>
             </div>
             <div class="col-md-6">
+                <ul class="list-group" id="listaWhisky">
+                    <li class="list-group-item producto">Jack Daniels</li>
+                    <li class="list-group-item producto">Jhony Walker</li>
+                    <li class="list-group-item producto">Chivas Regal</li>
+                </ul>
+                <ul class="list-group" id="listaRon">
+                    <li class="list-group-item producto">Cartavio XO</li>
+                    <li class="list-group-item producto">Capitan Morgan</li>
+                    <li class="list-group-item producto">De la Piedra.com</li>
+                </ul>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="http://placehold.it/300x300?text=CodiGo"
+                    id="imagen">
             </div>
         </div>
     </main>
@@ -73,6 +104,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.16.2/dist/sweetalert2.all.min.js"></script>
+
     <script src="./04-eventos.js"></script>
 </body>
 
