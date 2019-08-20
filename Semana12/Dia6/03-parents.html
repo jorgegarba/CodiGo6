@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        html,ul{
-            background-color:darkslategrey;
+        html,
+        ul {
+            background-color: darkslategrey;
         }
-        @keyframes rotacion{
-            from{
-                transform:rotate(0deg);
+
+        @keyframes rotacion {
+            from {
+                transform: rotate(0deg);
             }
-            to{
-                transform:rotate(360deg);
+
+            to {
+                transform: rotate(360deg);
             }
         }
-        .vinetas::before{
-            animation-name:rotacion;
+
+        .vinetas::before {
+            animation-name: rotacion;
             animation-duration: 1s;
-            animation-iteration-count:infinite;
+            animation-iteration-count: infinite;
             animation-timing-function: linear;
-            content:"";
+            content: "";
             display: inline-block;
 
             width: 5px;
-            height:5px;
-            border-top:1px solid blue;
-            border-right:1px solid yellow;
+            height: 5px;
+            border-top: 1px solid blue;
+            border-right: 1px solid yellow;
             border-bottom: 1px solid red;
-            border-left:1px solid green;
+            border-left: 1px solid green;
         }
     </style>
-  </head>
-  <body>
-      <main>
-          <ul class="nivel-1">
-              <li class="item-1">
-                  Primero
-              </li>
-              <li class="item-2">
-                  Segundo
-                  <ul class="nivel-2">
-                      <li class="item-a">Elemento A</li>
-                      <li class="item-b">Elemento B</li>
-                  </ul>
-              </li>
-              <li class="item-3">
-                  Tercero
-              </li>
-          </ul>
-      </main>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
+</head>
+
+<body>
+    <main>
+        <ul class="nivel-1">
+            <li class="item-1">
+                Primero
+            </li>
+            <li class="item-2">
+                Segundo
+                <ul class="nivel-2">
+                    <li class="item-a">Elemento A</li>
+                    <li class="item-b">Elemento B</li>
+                </ul>
+            </li>
+            <li class="item-2">
+                Segundo
+                <ul class="nivel-2">
+                    <li class="item-a">Elemento A</li>
+                    <li class="item-b">Elemento B</li>
+                </ul>
+            </li>
+            <li class="item-3">
+                Tercero
+            </li>
+        </ul>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="03-parents.js"></script>
-  </body>
+</body>
+
 </html>

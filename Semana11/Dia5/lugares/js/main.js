@@ -87,7 +87,6 @@ window.onload = function () {
                     // centrar el mapa en una coordenada especifica
                     map.setCenter(new google.maps.LatLng(elemento.lat,elemento.lon));
                 };
-
                 tr.appendChild(botonVer);
 
                 cuerpo.appendChild(tr);

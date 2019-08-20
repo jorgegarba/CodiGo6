@@ -15,4 +15,4 @@ $(".item-a").parents()
 
 //.parentsUntil("selector") - Hará lo mismo que parents pero se detendrá hasta encontrar el selector que sele haya pasado como parámetro
 
-$(".nivel-1>li").addClass("vinetas");
+$(".nivel-1 > li").addClass("vinetas");
