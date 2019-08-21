@@ -49,6 +49,55 @@ window.onload = function () {
         $(this).removeClass("rounded-circle");
     });
 
+    // focus, cuando el cursor se encuentra sobre el elemento 
+    $("#inputBuscar").focus(function () {
+        $(this).removeClass("form-control");
+        $(this).addClass("barra-activa");
+    });
+    // blur, cuando el cursor libera o sale del elemento
+    $("#inputBuscar").blur(function () {
+        $(this).removeClass("barra-activa");
+        $(this).addClass("form-control");
+    });
+
+    // contextmenu => evento que se dispara cuando hacemos click
+    // derecho en un elemento
+    $("#btnRon").contextmenu(function (e) {
+        e.preventDefault();
+        var X = e.clientX;
+        var Y = e.clientY;
+        // creando el elemento ul que sera el menu
+        var menu = $(`<ul></ul>`);
+        menu.addClass("list-group");
+        // creando una opcion (li) para el elemento ul
+        var opcion1 = $(`<li></li>`);
+        opcion1.addClass("list-group-item");
+        opcion1.html("OCULTAR");
+        // inyectando el elemento li al elemento ul
+        menu.append(opcion1);
+        menu.css("position","absolute")
+            .css("top", `${Y}px`)
+            .css("left", `${X}px`);
+
+        $("body").append(menu);
+
+
+
+        // <ul class="list-group">
+        //     <li class="list-group-item active">Active item</li>
+        //     <li class="list-group-item">Item</li>
+        //     <li class="list-group-item disabled">Disabled item</li>
+        // </ul>
+
+
+
+
+
+        console.log("se hizo click derecho!");
+    })
+
+
+
 
 
     reset();

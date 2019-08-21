@@ -18,6 +18,20 @@
         .activo {
             color: aqua;
         }
+
+        .barra-activa {
+            background-color: #3A3F44;
+            border: 0;
+            padding: 7px 7px 7px 10px;
+            border-bottom: 2px solid white;
+            width: 300px;
+            color: white;
+            outline: none;
+        }
+
+        .barra-activa::placeholder {
+            color: #999;
+        }
     </style>
 </head>
 
@@ -45,8 +59,8 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <form class="form-inline my-2 my-lg-0" autocomplete="off">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" id="inputBuscar">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
@@ -88,8 +102,7 @@
 
         <div class="row">
             <div class="col-12 text-center">
-                <img src="http://placehold.it/300x300?text=CodiGo"
-                    id="imagen">
+                <img src="http://placehold.it/300x300?text=CodiGo" id="imagen">
             </div>
         </div>
     </main>
@@ -111,3 +124,6 @@
 </body>
 
 </html>
+
+
+
