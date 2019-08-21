@@ -64,18 +64,33 @@ window.onload = function () {
     // derecho en un elemento
     $("#btnRon").contextmenu(function (e) {
         e.preventDefault();
+        // remove => quita un elemento del DOM
+        $("#miMenu").remove();
         var X = e.clientX;
         var Y = e.clientY;
         // creando el elemento ul que sera el menu
         var menu = $(`<ul></ul>`);
+        // attr => asigna el valor de un atributo
+        menu.attr("id", "miMenu");
         menu.addClass("list-group");
         // creando una opcion (li) para el elemento ul
         var opcion1 = $(`<li></li>`);
         opcion1.addClass("list-group-item");
-        opcion1.html("OCULTAR");
+        opcion1.html("Ocultar");
+        // creando una opcion (l1) para el elemento ul
+        var opcionImprimir = $(`<li></li>`);
+        opcionImprimir.addClass("list-group-item");
+        opcionImprimir.html("Imprimir");
+        // asignando el evento click del boton imprimir
+        opcionImprimir.click(function () {
+            $("#miMenu").remove();
+            window.print();
+        })
+
         // inyectando el elemento li al elemento ul
         menu.append(opcion1);
-        menu.css("position","absolute")
+        menu.append(opcionImprimir);
+        menu.css("position", "absolute")
             .css("top", `${Y}px`)
             .css("left", `${X}px`);
 
