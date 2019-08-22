@@ -11,6 +11,25 @@ function imprimirServicios(arregloServicios){
                     </thead>
                 </table>`;
     divRow.html(tabla);
+    //esto con el fin de obtener solamente la tabla, la variable "tabla" me representa múltiples elementos
+    //no confundir una variable de texto con un elemento del dom
+    var tablaServicios = $('#tablaServicios');
+    var tbody = `<tbody id="tbody"></tbody>`;
+    tablaServicios.append(tbody);
+    var tbodyServicios = $("tbody");
+    
+    arregloServicios.forEach(function(servicio){
+        //agregar por cada elemento de arregloServicios, vamos a ponerlo en la tabla
+        var tr = $('<tr></tr>');
+        var td1 = $(`<td>${servicio.serv_nom}</td>`);
+        var td2 = $(`<td>${servicio.serv_desc}</td>`);
+        var td3 = $(`<td>${servicio.serv_price}</td>`);
+        var img = $(`<img src="${servicio.serv_img}" width="150px"/>`);
+        var td4 = $(`<td></td>`);
+        td4.append(img);
+        tr.append(td1).append(td2).append(td3).append(td4);
+        tbodyServicios.append(tr);
+    });
 }
 
 function obtenerServicios(){
@@ -42,6 +61,7 @@ function obtenerServicios(){
 }
 obtenerServicios();
 
+//Como era antes con JS
 // var xhr = new XMLHttpRequest();
 // xhr.onreadystatechange = function(){
 //     if (xhr.readyState == 4){
