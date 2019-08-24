@@ -59,6 +59,91 @@ function obtenerServicios(){
         }
     });
 }
+
+function crearServicio(servicio){
+
+    $.ajax({
+        type:"POST",
+        url:"https://5d4b6adb00dbb10014879b12.mockapi.io/servicios",
+        timeout:1500,
+        //a diferencia de GET si enviaremos data, donde va nuestro objeto transformado a texto
+        data:JSON.stringify(servicio),
+        //Y para que nos entienda nuestro API que estamos enviando y como interpretarlo en la propiedad contentType tenemos que indicarle que tipo de contenido es, en este caso "application/json"
+        contentType:"application/json",
+        success:function(respuesta){
+            console.log(respuesta);
+            obtenerServicios();
+        },
+        error:function(error){
+            console.log(error);
+        },
+        beforeSend:function(){
+            console.log("Código ejecutado antes de enviar la data");
+            //mensajito o imagen de que se esta enviando los datos y que espere
+        }
+    })
+}
+
+var anadirServicios = $('#anadirServicios');
+
+anadirServicios.click(function(e){
+    e.preventDefault();
+    var divRow = $(".row");
+
+    var formulario = `<form>
+                            <table class="table">
+                                <tr>
+                                    <td>Nombre:</td>
+                                    <td><input class="form-control" type="text" name="serv_nom"></td>
+                                </tr>
+                                <tr>
+                                    <td>Descripción:</td>
+                                    <td><input class="form-control" type="text" name="serv_desc"></td>
+                                </tr>
+                                <tr>
+                                    <td>Precio:</td>
+                                    <td><input class="form-control" type="number" name="serv_price"></td>
+                                </tr>
+                            </table>
+                            <input type="submit" value="Crear" class="btn btn-primary">
+                        </form>`
+    divRow.html("");
+    divRow.html(formulario);
+    
+    var miFormulario = $('form');
+    miFormulario.submit(function(e){
+        e.preventDefault();
+        var misDatos = miFormulario.serializeArray();
+        console.log("Datos form",misDatos);
+
+        //En caso de querer obtener los valor 1 x 1
+        //bastaba con poner algún id:
+        //y usar .val() que nos retorna elvalor
+        //var inputName = $("#serv_nom")
+        /*var objServicio = {
+            serv_nom : inputName.val()
+        }*/
+        var objServicio = {};
+        // // //each seria similar a la función forEach de JS
+        // // //recibe un arreglo y una función anónima donde le digo que hacer, esa función anónima me devuelve por cada elemento una variable que en nuestro caso es input
+        misDatos.forEach(function(input){
+            //objeto[nombrepropiedad]=valordepropiedad
+            //objServicio[input.name] = input.value;
+            //objServicio["nombrepropiedad"] = "valordemipropiedad";
+            objServicio[input.name] = input.value;
+        });
+        // $.each(misDatos,function(i,input){
+        //     //objeto[nombrepropiedad]=valordepropiedad
+        //     objServicio[input.name] = input.value;
+        // });
+        
+        console.log(objServicio);
+
+        crearServicio(objServicio);
+    })
+
+})
+
 obtenerServicios();
 
 //Como era antes con JS
@@ -66,6 +151,7 @@ obtenerServicios();
 // xhr.onreadystatechange = function(){
 //     if (xhr.readyState == 4){
 //         //COSAS
+//         xhr.responseText
 //     }
 // }
 // xhr.open("GET","URL");
