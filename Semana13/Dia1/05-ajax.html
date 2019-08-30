@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.16.2/dist/sweetalert2.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="./05-ajax.css">
     <style>
         body {
@@ -84,6 +86,16 @@
         <div class="row">
             
         </div>
+
+        <table id="listaProductos">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+        </table>
     </main>
     <script>
         function openNav() {
@@ -106,6 +118,8 @@
         crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.16.2/dist/sweetalert2.all.min.js"></script>
+    <!-- datatables se tiene que agregar después de que cargue Jquery y antes que nuestro script -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <script src="./05-ajax.js"></script>
 </body>

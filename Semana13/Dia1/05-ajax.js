@@ -1,3 +1,28 @@
+function llenarDatosDatatable(){
+    //documentacion y plugin datatables.net
+    var tablaProductos = $('#listaProductos');
+    tablaProductos.DataTable({
+        //dentro del objeto que recibe datatables
+        //los params de ajax se pasan en un objeto
+        "ajax":{
+            type:"GET",
+            url:"https://5d4b6adb00dbb10014879b12.mockapi.io/productos",
+            timeout:1500,
+            //dataSrc que toda la informacion que reciba se manejara como un arreglo
+            dataSrc:""
+        },
+        "columns":[
+            {data:"prod_nom"},
+            {data:"prod_desc"},
+            {data:"prod_prec"}
+        ],
+        "language":{
+            "lengthMenu":"Mostrando _MENU_ elementos",
+            "search":"Buscar"
+        }
+    })
+}
+
 function imprimirServicios(arregloServicios){
     var divRow = $('.row');
     var tabla = `<table id="tablaServicios" class="table">
@@ -20,6 +45,7 @@ function imprimirServicios(arregloServicios){
     
     arregloServicios.forEach(function(servicio){
         //agregar por cada elemento de arregloServicios, vamos a ponerlo en la tabla
+        
         var tr = $('<tr></tr>');
         var td1 = $(`<td>${servicio.serv_nom}</td>`);
         var td2 = $(`<td>${servicio.serv_desc}</td>`);
@@ -30,6 +56,9 @@ function imprimirServicios(arregloServicios){
         tr.append(td1).append(td2).append(td3).append(td4);
         tbodyServicios.append(tr);
     });
+
+    tablaServicios.DataTable();
+
 }
 
 function obtenerServicios(){
@@ -144,6 +173,7 @@ anadirServicios.click(function(e){
 
 })
 
+llenarDatosDatatable();
 obtenerServicios();
 
 //Como era antes con JS
