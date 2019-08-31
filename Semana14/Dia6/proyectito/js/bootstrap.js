@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function() { //window.onload
     //añadido para la navegación en pestañas
     $('.nav-tabs a[href="#alumnos"]').tab('show')
     $(".nav-tabs a").click(function() {
