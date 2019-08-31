@@ -12,7 +12,7 @@ function Auto(placa, color,marca){
     
     console.log(camioneta);
 
-    var texto = "hola";
+    // var texto = "hola";
 
    
     

@@ -1,0 +1,17 @@
+/* estilos personalizados */
+
+/* edición del div para cambiar el título de la carta */
+.titulo-carta{
+    background-color:#f44336;
+    padding:1rem;
+    color:white;
+    border-radius:10px;
+    text-align:center;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 10px 4px lightgray;
+    position:relative;
+    top:-25%;
+}
+.titulo-carta *{
+    margin:0;
+}

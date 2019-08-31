@@ -27,6 +27,10 @@ class Comprobante{
         console.log(this.comprobante_fecha);
     }
 
+    mostrarComprobante(){
+        console.log("Resumen comprobante:",this);
+    }
+
     calcularSubTotal(cantidad,prec_unit){
         return cantidad*prec_unit;
     }
