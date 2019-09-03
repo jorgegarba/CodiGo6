@@ -1,13 +1,13 @@
 class Curso{
     curso_id = 0;
-    curso_nombre = "";
+    curso_nom = "";
     curso_desc = "";
     curso_anio = 0;
     curso_docente = "";
     curso_alumnos = [];
 
-    constructor(c_id,c_nombre,c_desc,c_anio,c_docente){
-        this.curso_id = c_id;
+    constructor(c_nombre,c_desc,c_anio,c_docente){
+        
         this.curso_nombre = c_nombre;
         this.curso_desc = c_desc;
         this.curso_anio = c_anio;

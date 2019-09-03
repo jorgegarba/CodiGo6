@@ -26,6 +26,44 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- modal -->
+    <div
+      class="modal fade"
+      id="modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalTitulo"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitulo">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- contenido -->
     <nav class="navbar navbar-dark bg-danger">
       <a class="navbar-brand" href="#">Administración</a>
     </nav>
@@ -45,13 +83,7 @@
                 <a class="nav-link" href="#alumnos">Alumnos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#crearAlumnos">Crear Alumnos</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="#cursos">Cursos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#crearCurso">Crear Curso</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#estadisticas">Estadisticas</a>
@@ -61,33 +93,40 @@
             <div class="tab-content">
               <div id="alumnos" class="tab-pane fade in active">
                 <h3>Alumnos</h3>
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  data-toggle="modal"
+                  data-target="#modal"
+                  id="crearAlumno"
+                >
+                  Crear Alumno
+                </button>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               </div>
-              <div id="crearAlumnos" class="tab-pane fade">
-                <h3>Crear Alumnos</h3>
-                <p>
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </div>
               <div id="cursos" class="tab-pane fade">
                 <h3>Cursos</h3>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam.
-                </p>
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  data-toggle="modal"
+                  data-target="#modal"
+                  id="crearCurso"
+                >
+                  Crear Curso
+                </button>
+                <div>
+                    <table class="table" id="contenidoCursos">
+
+                    </table>
+                </div>
               </div>
               <!-- AÑADIDO -->
-              <div id="crearCurso" class="tab-pane fade">
-                <h3>Crear Curso</h3>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam.
-                </p>
-              </div>
               <div id="estadisticas" class="tab-pane fade">
                 <h3>Estadisticas</h3>
                 <p>
@@ -116,7 +155,10 @@
       integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
       crossorigin="anonymous"
     ></script>
-    <script src="js/bootstrap.js">
-    </script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/Alumno.js"></script>
+    <script src="js/Curso.js"></script>
+    <script src="js/Interface.js"></script>
+    <script src="js/App.js"></script>
   </body>
 </html>
