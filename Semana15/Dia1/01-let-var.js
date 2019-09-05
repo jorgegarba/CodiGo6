@@ -20,6 +20,7 @@ if(true){
 console.log(nombre);
 console.log(apellido);
 
+// console.log(edad)
 try{
     //código que se va a ejecutar y sospecho que me va a generar un error
     console.log(edad)

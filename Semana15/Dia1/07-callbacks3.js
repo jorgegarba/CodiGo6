@@ -52,18 +52,20 @@ let getCursosByAlumnoId = (id,callback) =>{
     callback("No existen cursos para el alumno",null);
 }
 
-getAlumnoById(1, (error, objAlumno) => {
+getAlumnoById(2, (error, objAlumno) => {
     if(error){
         console.log(error);
     }else{
-        getCursosByAlumnoId(1,(error,listaCursos)=>{
+        getCursosByAlumnoId(2,(error,listaCursos)=>{
             if(error){
                 console.log(error)
             }else{
-                console.log("Se han encontrado los sgtes cursos");
-                console.log(listaCursos);
+                console.log("Se han encontrado los sgtes cursos para " + objAlumno.nombre);
+
+                console.log(listaCursos.cursos);
             }
-        })
+        });
        
     }
 });
+

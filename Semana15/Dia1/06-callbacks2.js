@@ -18,7 +18,7 @@ let BDalumnos = [
 
 //id = id a buscar, callback = mi función callback
 let getAlumnoById = (id,callback) =>{
-    for (let i = 0;i<BDalum|nos.length;i++){
+    for (let i = 0;i<BDalumnos.length;i++){
         if(BDalumnos[i].id === id){
             callback(null,BDalumnos[i]);
             //cortamos la ejecución del código con return

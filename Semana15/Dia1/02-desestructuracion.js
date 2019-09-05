@@ -28,7 +28,7 @@ console.log("---------Objetos Destructurados--------");
 
 let cevichela = {
     id:1,
-    precio:30,
+    precio_del_plato:30,
     descripcion:"Ceviche más chelas, plato preferido de Código",
     componentes:["Cerveza","Ceviche"],
     oferta:{
@@ -44,7 +44,7 @@ let cevichela = {
 // console.log(descripcion);
 
 //Para destructurarun objeto, declaro el nombre de las propiedades conociendolas 
-let {id,descripcion,precio:cuantoEsta} = cevichela;
+let {id,descripcion,precio_del_plato:cuantoEsta} = cevichela;
 
 console.log(descripcion);
 console.log(cuantoEsta);
