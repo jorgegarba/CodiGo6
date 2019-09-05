@@ -1,13 +1,13 @@
-class Alumno {
+class Alumno{
   alumno_id = 0;
-  alumno_nombres = "";
-  alumno_apellidos = "";
-  alumno_dni = 0;
+  alumno_nom = "";
+  alumno_ape = "";
+  alumno_dni = 0
 
-  constructor(a_id, a_nombres, a_apellidos, a_dni) {
-    this.alumno_id = a_id;
-    this.alumno_nombres = a_nombres;
-    this.alumno_apellidos = a_apellidos;
-    this.alumno_dni = a_dni;
+  constructor(alu_nom,alu_ape,alu_dni){
+    this.alumno_nom = alu_nom;
+    this.alumno_ape = alu_ape;
+    this.alumno_dni = alu_dni;
   }
 }
+

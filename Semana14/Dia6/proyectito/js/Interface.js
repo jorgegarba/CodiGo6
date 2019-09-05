@@ -1,7 +1,9 @@
 const RUTA_BASE = "https://5d4b6adb00dbb10014879b12.mockapi.io/";
 
 class Interface {
+  
   obtenerCursos() {
+    console.log("obteniendo Curso")
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4 && xhr.status == 200) {
@@ -46,16 +48,21 @@ class Interface {
     xhr.open("GET", `${RUTA_BASE}cursos`);
     xhr.send();
   }
-  crearCurso(objCurso) {
+  crearCurso(objCurso,callback) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4 && xhr.status == 201) {
         console.log("Exito al crear el Curso");
+        callback(null,true);
+        return;
       }
     };
-
+    
     xhr.open("POST", `${RUTA_BASE}cursos`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(objCurso));
+
+
+
   }
 }

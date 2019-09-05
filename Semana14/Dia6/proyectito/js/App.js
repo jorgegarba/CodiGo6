@@ -34,15 +34,22 @@ window.onload = function() {
     var formulario = $("#formulario");
     console.log(formulario);
     formulario.submit(function(e) {
-      e.preventDefault();
+      
       var dataCurso = formulario.serializeArray();
       var miCurso = new Curso();
       dataCurso.forEach(function(input) {
         miCurso[input.name] = input.value;
-        console.log(miCurso);
+        console.log("objeto mi Curso",miCurso);
       });
 
-      miInterface.crearCurso(miCurso);
+      miInterface.crearCurso(miCurso,(error) => {
+        if(error){
+          console.log(error);
+        }else{
+          miInterface.obtenerCursos();
+        }
+      });
+      e.preventDefault();
     });
   };
 };

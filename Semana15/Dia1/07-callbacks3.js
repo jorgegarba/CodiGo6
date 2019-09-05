@@ -35,7 +35,7 @@ let cursos = [
 let getAlumnoById = (id,callback) =>{
     for(let i=0; i<alumnos.length;i++){
         if(alumnos[i].id === id){
-            callback(null,alumno[i]);
+            callback(null,alumnos[i]);
             return;
         }
     }
@@ -44,7 +44,7 @@ let getAlumnoById = (id,callback) =>{
 
 let getCursosByAlumnoId = (id,callback) =>{
     for(let i=0; i<cursos.length; i++){
-        if(cursos[id].alumnoId === id){
+        if(cursos[i].alumnoId === id){
             callback(null,cursos[i]);
             return;
         }
@@ -56,7 +56,14 @@ getAlumnoById(1, (error, objAlumno) => {
     if(error){
         console.log(error);
     }else{
-        //quiero buscar los cursos según el Id de mi alumno
-            //ya verifique que el alumno existe
+        getCursosByAlumnoId(1,(error,listaCursos)=>{
+            if(error){
+                console.log(error)
+            }else{
+                console.log("Se han encontrado los sgtes cursos");
+                console.log(listaCursos);
+            }
+        })
+       
     }
 });
