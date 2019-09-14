@@ -1,0 +1,11 @@
+Aparte de obtener el Api key
+
+https://developers.google.com/maps/documentation/javascript/get-api-key
+
+Hay que activar  Maps JavaScript API
+
+En Google Cloud Platform
+
+CLICK EN Apis y servicios, buscar Maps Javascript Api - Habilitar
+
+https://developers.google.com/maps/documentation/javascript/tutorial

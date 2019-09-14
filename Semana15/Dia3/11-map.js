@@ -11,7 +11,7 @@ let mitades = numeros.map((numero)=>{
 
 let raiz = numeros.map((elemento)=>{
     return Math.sqrt(elemento);
-})
+});
 
 console.log(mitades);
 
