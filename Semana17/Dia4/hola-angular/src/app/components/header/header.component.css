@@ -1,0 +1,24 @@
+header {
+    display: flex;
+    height: 50px;
+    border: 1px red solid;
+    justify-content: space-between;
+}
+
+nav {
+    display: flex;
+    border: 1px blue solid;
+    align-items: center
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    border: 1px orange solid;
+}
+
+li {
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px purple solid;
+}
