@@ -1,5 +1,6 @@
 <h5>{{titulo}}</h5>
 <hr>
 <label>Nombre:</label>
-<input type="text" class="form-control" [(ngModel)] = 'nombre'/>
+{{producto.nombre}}
+<input type="text" class="form-control" [(ngModel)] = 'producto.nombre'/>
 <button class="btn btn-primary" (click) = "miFuncion()">Dame Click!</button>
