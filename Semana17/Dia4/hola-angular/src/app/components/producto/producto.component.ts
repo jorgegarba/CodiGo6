@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./producto.component.css']
 })
 export class ProductoComponent {
-  title = 'TITULO DEL PROYECTO';
+  title = 'Título del Producto';
+  content = 'Producto Novedoso Te limpia la casa te lava la ropa y te da desayuno';
+  price = '$ 899.99';
 }

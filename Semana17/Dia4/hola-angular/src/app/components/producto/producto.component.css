@@ -1,3 +1,12 @@
 h2, p {
     font-family: Arial, Helvetica, sans-serif
 }
+div {
+    width:300px;
+    height:400px;
+    border:1px solid blue;
+    border-radius:5px;
+    padding:10px;
+    margin:5px;
+    float:left;
+}

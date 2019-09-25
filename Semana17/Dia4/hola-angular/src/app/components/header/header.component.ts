@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   marca: string = "CodiGo";
-  sesion: boolean = true;
+  sesion: boolean = false;
   links: Array<string> = ['Nosotres','Portafolio', 'Contacto'];
 }
