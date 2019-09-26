@@ -1,0 +1,32 @@
+.boton {
+    background-color: #A21F55;
+    color: #ccc;
+    border: 0;
+    outline: none;
+}
+
+.relleno-interno {
+    padding: 10px 5px;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #A21F55
+}
+
+.texto-exito {
+    color: #229966;
+}
+
+.texto-error {
+    color: #992233;
+}
+
+.texto-alerta {
+    color: yellow;
+}

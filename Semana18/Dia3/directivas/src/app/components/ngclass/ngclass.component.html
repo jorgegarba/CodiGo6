@@ -1,0 +1,49 @@
+<main>
+    <h1>Directiva <code>[ngClass]</code></h1>
+    <p>
+        La directiva ngClass sirve para colocar clases
+        a nuestros elementos en <strong>Angular</strong>
+    </p>
+    <hr>
+    <h3>Aplicando clases de manera tradicional</h3>
+    <button class="boton">
+        Click aquí
+    </button>
+    <hr>
+    <h3>Aplicando clases con la directiva <code>[ngClass]</code></h3>
+    <button [ngClass]="'boton relleno-interno'">
+        Click aquí
+    </button>
+    <hr>
+    <h3>
+        Aplicando clases con la directiva <code>[ngClass]</code>
+        en forma de arreglo
+    </h3>
+    <button [ngClass]="['boton','relleno-interno']">
+        Click aquí
+    </button>
+    <hr>
+    <h3>Aplicando clases bajo condiciones con <code>[ngClass]</code></h3>
+    <p [ngClass]="{'texto-exito':!errorsh , 'texto-error':errorsh}">
+        MENSAJE DEL SERVIDOR
+    </p>
+    <button (click)="cambiarError()">Interruptor Error</button>
+    <hr>
+    <table border="1">
+        <thead>
+            <th>Nombres</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of productos"
+                [ngClass]="{'texto-exito':p.cantidad > 80, 'texto-alerta':p.cantidad >= 40 && p.cantidad <= 80, 'texto-error':p.cantidad<40}">
+                <td>{{p.nombre}}</td>
+                <td>{{p.cantidad}}</td>
+                <td *ngIf="p.cantidad>80">Sin Acciones</td>
+                <td *ngIf="p.cantidad>=40 && p.cantidad<=80">Llamar al proveedor</td>
+                <td *ngIf="p.cantidad<40">Comprar Productos</td>
+            </tr>
+        </tbody>
+    </table>
+</main>
