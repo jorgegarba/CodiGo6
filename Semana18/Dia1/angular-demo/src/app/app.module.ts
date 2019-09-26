@@ -7,13 +7,15 @@ import { ContenedorComponent } from './components/contenedor/contenedor.componen
 import { FormularioComponent } from './components/formulario/formulario.component';
 
 import { FormsModule } from '@angular/forms';
+import { ProductoDetalleComponent } from './components/producto-detalle/producto-detalle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ContenedorComponent,
-    FormularioComponent
+    FormularioComponent,
+    ProductoDetalleComponent
   ],
   imports: [
     BrowserModule,
