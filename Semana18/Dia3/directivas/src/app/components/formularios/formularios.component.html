@@ -1,0 +1,72 @@
+<main>
+    <div class="fila-1">
+        <fieldset>
+            <legend>Reserva de Ambientes</legend>
+            <form>
+                <div>
+                    <label for="">Nombres:</label>
+                    <input type="text" required #nombres name="inputNombres">
+                </div>
+                <div>
+                    <label for="">Apellidos:</label>
+                    <input type="text" #apellidos name="inputApellidos">
+                </div>
+                <div>
+                    <label for="">Fecha de Reserva:</label>
+                    <input type="date">
+                </div>
+                <div>
+                    <label for="">Hora de Reserva:</label>
+                    <input type="time">
+                </div>
+                <div>
+                    <input type="submit" value="Enviar Datos">
+                    <button (click)="imprimir(nombres,apellidos)">
+                        Imprimir
+                    </button>
+                </div>
+            </form>
+        </fieldset>
+        <hr>
+        <fieldset>
+            <legend>Formulario 2</legend>
+            <form action="">
+                <label for="">Apodo</label>
+                <input type="text" #apodo required [ngModel] name="inputApodo">
+                <br>
+                <label for="">Pregunta</label>
+                <input type="text" #pregunta [ngModel] name="inputPregunta">
+                <br>
+                <button (click)="imprimir2(apodo, pregunta)">
+                    Enviar Datos
+                </button>
+            </form>
+        </fieldset>
+    </div>
+
+    <fieldset>
+        <legend>Mascota</legend>
+        <form>
+            <label for="">Raza</label>
+            <input type="text"
+                    name="raza"
+                    #raza="ngModel"
+                    [ngModel]
+                    required>
+            <br>
+            <label for="">Edad</label>
+            <input type="number"
+                    min="0"
+                    max="20"
+                    required
+                    #edad="ngModel"
+                    [ngModel]
+                    name="edad">
+            <br>
+            <button (click)="imprimir3(raza, edad)"
+                    [disabled]="!raza.valid" >
+                Registrar Mascota
+            </button>
+        </form>
+    </fieldset>
+</main>

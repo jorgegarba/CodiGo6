@@ -1,0 +1,11 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.fila-1 {
+    display: flex;
+}
+.fila-1 fieldset {
+    flex: 0.5;
+}

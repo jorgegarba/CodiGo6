@@ -1,0 +1,13 @@
+<main>
+    <span [ngSwitch]="alerta">
+        <p *ngSwitchCase="'danger'" [ngStyle]="{'color': 'red'}">
+            COINCIDE CON DANGER
+        </p>
+        <p *ngSwitchCase="'success'" [ngStyle]="{'color': 'green'}">
+            COINCIDE CON SUCCESS
+        </p>
+        <p *ngSwitchDefault>
+            NO HAY COINCIDENCIAS
+        </p>
+    </span>
+</main>
