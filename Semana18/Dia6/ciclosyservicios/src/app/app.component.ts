@@ -9,7 +9,6 @@ export class AppComponent implements OnInit{
   title = 'ciclosyservicios';
   validado: boolean = false;
   constructor(private _sesion:SesionService){
-
   }
   ngOnInit(){
     console.log(this._sesion);
