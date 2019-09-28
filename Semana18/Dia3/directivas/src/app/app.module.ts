@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     NgclassComponent,
     NgstyleComponent,
     NgswitchComponent,
-    FormulariosComponent
+    FormulariosComponent,
   ],
   imports: [
     BrowserModule,

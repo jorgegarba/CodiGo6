@@ -43,30 +43,57 @@
             </form>
         </fieldset>
     </div>
-
-    <fieldset>
-        <legend>Mascota</legend>
-        <form>
-            <label for="">Raza</label>
-            <input type="text"
-                    name="raza"
-                    #raza="ngModel"
-                    [ngModel]
-                    required>
-            <br>
-            <label for="">Edad</label>
-            <input type="number"
-                    min="0"
-                    max="20"
+    <div class="fila-2">
+        <fieldset>
+            <legend>Mascota</legend>
+            <form>
+                <label for="">Raza</label>
+                <input type="text" name="raza" #raza="ngModel" [ngModel] required>
+                <br>
+                <label for="">Edad</label>
+                <input type="number" min="0" max="20" required #edad="ngModel" [ngModel] name="edad">
+                <br>
+                <button (click)="imprimir3(raza, edad)" [disabled]="!raza.valid">
+                    Registrar Mascota
+                </button>
+            </form>
+        </fieldset>
+        <hr>
+        <fieldset>
+            <legend>Registrar Canción</legend>
+            <form #formulario="ngForm"
+                (ngSubmit)="registrarCancion(formulario)">
+                
+                <label for="inputAutor">Autor:</label>
+                <input type="text" 
+                        [ngModel] 
+                        #autor="ngModel" 
+                        name="autor" 
+                        required>
+                <br>
+                <label for="">Canción:</label>
+                <input type="text"
+                    [(ngModel)]="data.miCancion"
+                    #cancion="ngModel"
+                    name="cancion"
                     required
-                    #edad="ngModel"
-                    [ngModel]
-                    name="edad">
-            <br>
-            <button (click)="imprimir3(raza, edad)"
-                    [disabled]="!raza.valid" >
-                Registrar Mascota
-            </button>
-        </form>
-    </fieldset>
+                    >
+                <br>
+                <label for="">Genero:</label>
+                <input type="text"
+                    [(ngModel)]="data.miGenero"
+                    #genero="ngModel"
+                    name="genero"
+                    required
+                    >
+
+                <button
+                    type="submit">
+                    REGISTRAR
+                </button>
+            </form>
+
+        </fieldset>
+    </div>
+
 </main>

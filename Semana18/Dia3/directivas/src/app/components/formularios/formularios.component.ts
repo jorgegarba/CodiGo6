@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormulariosComponent implements OnInit {
 
+  data = {
+    miGenero: '',
+    miCancion: ''
+  }
+
   constructor() { }
 
   ngOnInit() {
@@ -25,5 +30,9 @@ export class FormulariosComponent implements OnInit {
   imprimir3(raza, edad) {
     console.log(raza);
     console.log(edad);
+  }
+
+  registrarCancion(formulario) {
+    console.log(formulario.value);
   }
 }
