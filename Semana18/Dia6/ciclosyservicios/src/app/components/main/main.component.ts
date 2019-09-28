@@ -19,7 +19,11 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
   }
+  usuarioSeleccionado:Usuario;
 
+  seleccionarUsuario(usuario:Usuario){
+    this.usuarioSeleccionado = usuario;
+  }
   anadirUsuario(){
     const usuarioTmp = new Usuario();
     usuarioTmp.nombres = this.usuario.nombres;

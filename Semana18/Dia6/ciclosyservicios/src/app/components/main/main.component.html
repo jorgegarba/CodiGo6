@@ -22,3 +22,11 @@
 <button class="btn btn-primary" (click)="anadirUsuario()">
     Añadir Usuario
 </button>
+
+<ul>
+    <li *ngFor = "let usuario of arrayUsuarios" (click)="seleccionarUsuario(usuario)">
+        {{usuario.nombres}}
+    </li>
+</ul>
+
+<app-detalles [usuario]="usuarioSeleccionado"></app-detalles>

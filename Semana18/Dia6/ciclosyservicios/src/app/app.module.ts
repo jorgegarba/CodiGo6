@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { SesionService } from './services/sesion.service';
 import { NavComponent } from './components/nav/nav.component';
 import { MainComponent } from './components/main/main.component';
+import { DetallesComponent } from './components/detalles/detalles.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    MainComponent
+    MainComponent,
+    DetallesComponent
   ],
   imports: [
     BrowserModule,
