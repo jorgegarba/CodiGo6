@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,DoCheck } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, DoCheck {
 
   usuario: Usuario = {
     nombres : '',
@@ -18,6 +18,12 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngDoCheck(){
+    //Sirve para detectar cambios que Angular no pueda detectar por si mismo
+    console.log('Ejecutando ngDoCheck');
+    //El valor previo de algo y su cambio.
   }
   usuarioSeleccionado:Usuario;
 
