@@ -1,4 +1,15 @@
-import { Component, OnInit, Input,OnChanges,SimpleChanges,} from '@angular/core';
+import { Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  OnInit, 
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  ngAfterViewChecked,
+  OnDestroy,
+  } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { ObservableService } from '../../services/observable.service';
 @Component({
@@ -6,7 +17,7 @@ import { ObservableService } from '../../services/observable.service';
   templateUrl: './detalles.component.html',
   styleUrls: ['./detalles.component.css']
 })
-export class DetallesComponent implements OnInit, OnChanges{
+export class DetallesComponent implements OnInit, OnChanges, OnDestroy, AfterContentInit, AfterContentChecked, AfterViewInit,ngAfterViewChecked{
 
   @Input()
   usuario:Usuario;
@@ -26,11 +37,32 @@ export class DetallesComponent implements OnInit, OnChanges{
     }
   }
   
+  suscripcion:any;
   ngOnInit() {
 
-    this.miObservable.contador.subscribe(data => {
+    this.suscripcion = this.miObservable.contador.subscribe(data => {
       console.log(data);
-    })
+    });
+  }
+
+  ngAfterContentInit(){
+    console.log("ejecutando AfterContentInit, despues que angular proyecte el contenido");
+  }
+
+  ngAfterContentChecked(){
+    console.log("ejecutando AfterContentChecked,despues que Angularcompruebe el contenido Proyectado, por ejemplo para obtener atributos con @ViewChild");
+  }
+
+  ngAfterViewInit(){
+    console.log("ejecutando AfterViewInit,despues de inicializar las vistas del componente");
+  }
+
+  ngAfterViewChecked() {
+    console.log("Se ejecuta AfterViewChecked despues de comprobar las vistas");
+  }
+
+  ngOnDestroy(){
+    this.suscripcion.unsubscribe();
   }
 
 }

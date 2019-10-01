@@ -11,8 +11,8 @@ import { DetallesComponent } from './components/detalles/detalles.component';
 import { OtherComponent } from './components/other/other.component';
 
 const rutas:Routes = [
-  {path: '', component:AppComponent},
-  
+  {path: 'main', component:MainComponent},
+  {path: 'other', component:OtherComponent}
 ]
 
 @NgModule({
@@ -25,7 +25,8 @@ const rutas:Routes = [
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(rutas)
   ],
   // Aqui registramos los servicios
   providers: [SesionService],
