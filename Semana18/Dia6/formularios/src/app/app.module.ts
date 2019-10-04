@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { RUTAS } from './app.routes';
 import { CrearFacturaComponent } from './components/crear-factura/crear-factura.component';
+import { VerFacturaComponent } from './components/ver-factura/ver-factura.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CrearFacturaComponent } from './components/crear-factura/crear-factura.
     FacturasComponent,
     HomeComponent,
     ErrorComponent,
-    CrearFacturaComponent
+    CrearFacturaComponent,
+    VerFacturaComponent
   ],
   imports: [
     BrowserModule,
