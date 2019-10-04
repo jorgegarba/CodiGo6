@@ -12,6 +12,10 @@ import { RUTAS } from './app.routes';
 import { CrearFacturaComponent } from './components/crear-factura/crear-factura.component';
 import { VerFacturaComponent } from './components/ver-factura/ver-factura.component';
 
+// importamos el modulo de los formularios
+// para tener la posibilidad de usar [(ngModel)]
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,8 @@ import { VerFacturaComponent } from './components/ver-factura/ver-factura.compon
   imports: [
     BrowserModule,
     RUTAS,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearFacturaComponent implements OnInit {
 
+  objFactura = {
+    fact_nro: '',
+    fact_rz: '',
+    fact_fech: '',
+    fact_ruc: ''
+  }
+
   constructor() { }
 
   ngOnInit() {
