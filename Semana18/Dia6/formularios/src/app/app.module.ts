@@ -9,6 +9,7 @@ import { FacturasComponent } from './components/facturas/facturas.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { RUTAS } from './app.routes';
+import { CrearFacturaComponent } from './components/crear-factura/crear-factura.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RUTAS } from './app.routes';
     NavbarComponent,
     FacturasComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    CrearFacturaComponent
   ],
   imports: [
     BrowserModule,
