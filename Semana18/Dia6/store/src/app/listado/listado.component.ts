@@ -22,5 +22,6 @@ export class ListadoComponent implements OnInit, OnDestroy {
     this.subscripcion.unsubscribe();
   }
 
+  //https://www.cheatography.com/nathane2005/cheat-sheets/angular2-pipes/
 
 }
