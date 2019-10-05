@@ -10,7 +10,5 @@ export class TiendaService {
   constructor(private _sHttp: HttpClient) { }
 
   getProductos(): Observable<any> {
-    return this._sHttp.get('http(s)://5d4a3aed5c331e00148eaec4.mockapi.io/productos');
-  }
-  //algo
+    return this._sHttp.get('https://5d4a3aed5c331e00148eaec4.mockapi.io/productos');
 }
