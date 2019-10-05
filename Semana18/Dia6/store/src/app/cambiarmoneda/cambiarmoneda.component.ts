@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CambiarmonedaComponent implements OnInit {
   monto: number = 0;
+  texto: string = 'azucena';
   constructor() { }
 
   ngOnInit() {
