@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FacturasService } from './../../services/facturas.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-crear-factura',
   templateUrl: './crear-factura.component.html',
   styleUrls: ['./crear-factura.component.css']
 })
-export class CrearFacturaComponent implements OnInit {
+export class CrearFacturaComponent implements OnInit, OnDestroy {
+  subscriptor: Subscription;
 
   objFactura = {
     fact_nro: '',
@@ -22,9 +24,18 @@ export class CrearFacturaComponent implements OnInit {
 
   crearFactura() {
     console.log(this.objFactura);
-    this._sFactura.postFactura(this.objFactura).subscribe((rpta) => {
+    this.subscriptor = this._sFactura.postFactura(this.objFactura).subscribe((rpta) => {
       console.log(rpta);
     })
   }
+
+  ngOnDestroy() {
+    try {
+      this.subscriptor.unsubscribe();
+    } catch (error) {
+
+    }
+  }
+
 
 }
