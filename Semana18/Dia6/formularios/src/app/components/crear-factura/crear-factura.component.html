@@ -58,9 +58,10 @@
             <div class="form-group">
                 <button type="submit"
                         class="btn btn-block btn-lg btn-dark"
-                        [disabled]="!formulario.valid">
+                        [disabled]="!formulario.valid"
+                        (click)="crearFactura()">
                     <i class="fas fa-save"></i>
-                    Registrar Factura Siñorsh
+                    Registrar Factura
                 </button>
             </div>
         </form>
