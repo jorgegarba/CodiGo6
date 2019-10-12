@@ -74,9 +74,42 @@ export class FacturasComponent implements OnInit, OnDestroy {
   }
 
   abrirModalEditar(id) {
+    // antes de abrir el modal
+    // traer la factura dado su id
+    // console.time("demoreishon");
+    Swal.fire({
+      type: 'info',
+      html: `<h2 class="display-4">Espere un momento<h2>
+              <i class="fa fa-refresh fa-3x fa-spin" ></i> <br/>
+              <p>Esperando al Servidor...</p>`,
+      allowOutsideClick: false,
+      showConfirmButton: false
+    });
+
+    this._sFacturas.getFacturaById(id).subscribe((rpta) => {
+      // console.timeEnd("demoreishon");
+      Swal.close();
+      if (rpta.id) {
+        // la factura existe y ya llegó
+        this.objFactura = rpta;
+
+        $("#modalEditar").modal("show");
+      }
+    })
 
 
+  }
 
-    $("#modalEditar").modal("show");
+
+  guardarCambios() {
+    // consumir el servicio para editar la factura
+    this._sFacturas.putFacturaById(this.objFactura).subscribe((rpta) => {
+      if (rpta.id) {
+        // factura correctamente editada
+        this.traerFacturas();
+        $("#modalEditar").modal("hide");
+
+      }
+    })
   }
 }

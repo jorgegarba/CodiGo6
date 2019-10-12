@@ -26,5 +26,17 @@ export class FacturasService {
   deleteFactura(id): Observable<any> {
     return this._sHttp.delete(`${URL_BACKEND}/facturas/${id}`);
   }
+  getFacturaById(id): Observable<any> {
+    return this._sHttp.get(`${URL_BACKEND}/facturas/${id}`);
+  }
+  putFacturaById(objFactura): Observable<any> {
+
+    let objFacturaString = JSON.stringify(objFactura);
+
+    let misHeaders = new HttpHeaders().set("Content-type", "application/json");
+
+    return this._sHttp.put(`${URL_BACKEND}/facturas/${objFactura.id}`,
+                            objFacturaString, { headers: misHeaders });
+  }
 
 }
