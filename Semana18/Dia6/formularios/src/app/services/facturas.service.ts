@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { URL_BACKEND } from './../../environments/environment.prod';
+import { forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacturasService {
 
+  arregloRespuestas: Array<any> = [];
+  arregloTmp:Array<any> = [];
   constructor(private _sHttp: HttpClient) { }
 
   getFacturas(): Observable<any> {
@@ -37,6 +40,20 @@ export class FacturasService {
 
     return this._sHttp.put(`${URL_BACKEND}/facturas/${objFactura.id}`,
                             objFacturaString, { headers: misHeaders });
+  }
+
+  deleteFacturas(arregloFacturas): Observable<any>{
+    
+    arregloFacturas.forEach(factura => {
+      const respuesta = this._sHttp.delete(`${URL_BACKEND}/facturas/${factura.id}`);
+    
+      this.arregloRespuestas.push(respuesta);
+      this.arregloTmp = this.arregloRespuestas;
+      this.arregloRespuestas = [];
+    });
+    
+    return forkJoin(this.arregloTmp);
+
   }
 
 }
