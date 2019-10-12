@@ -20,8 +20,11 @@ export class FacturasService {
     let misHeaders = new HttpHeaders().set("Content-Type", "application/json");
 
     return this._sHttp.post(`${URL_BACKEND}/facturas`,
-                              objFacturaString,
-                              { headers: misHeaders });
+      objFacturaString,
+      { headers: misHeaders });
+  }
+  deleteFactura(id): Observable<any> {
+    return this._sHttp.delete(`${URL_BACKEND}/facturas/${id}`);
   }
 
 }

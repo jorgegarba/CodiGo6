@@ -1,3 +1,73 @@
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form class="mt-4 animated slideInLeft " #formulario="ngForm">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="">Id de Factura:</label>
+                                    <input type="text" required class="form-control"
+                                            [(ngModel)]="objFactura.id" name="id"
+                                            disabled>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Nro de Factura:</label>
+                                    <input type="text" required class="form-control" [(ngModel)]="objFactura.fact_nro"
+                                        name="fact_nro" placeholder="Ejm: F001-00456">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="">Razón Social:</label>
+                                    <input type="text" class="form-control" required [(ngModel)]="objFactura.fact_rz"
+                                        name="fact_rz" placeholder="Ejm: Binario Consultores S.R.L.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="">Fecha de Facturación</label>
+                                    <input type="date" class="form-control" required [(ngModel)]="objFactura.fact_fech"
+                                        name="fact_fech">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Ruc:</label>
+                                    <input type="text" maxlength="11" minlength="11" class="form-control" required
+                                        [(ngModel)]="objFactura.fact_ruc" name="fact_ruc"
+                                        placeholder="Ejm: 20038573192">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-block btn-lg btn-dark" [disabled]="!formulario.valid"
+                                (click)="crearFactura()">
+                                <i class="fas fa-save"></i>
+                                Registrar Factura
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <main class="container mt-5">
 
     <div>
@@ -16,6 +86,7 @@
                         <th>Numero de Factura</th>
                         <th>Ruc</th>
                         <th>Fecha de Compra</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +96,16 @@
                         <td>{{f.fact_nro}}</td>
                         <td>{{f.fact_ruc}}</td>
                         <td>{{f.fact_fech}}</td>
+                        <td style="display: flex;">
+                            <button class="btn btn-danger" (click)="eliminarFactura(f.id)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+
+                            <button class="btn btn-secondary ml-2" (click)="abrirModalEditar(f.id)">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -32,10 +113,8 @@
 
     </div>
 
-    <button class="btn btn-dark btnCrear animated bounce infinite slow"
-        (click)="crearFactura()">
-        <i class="fa fa-plus fa-2x" 
-        aria-hidden="true"></i>
+    <button class="btn btn-dark btnCrear animated bounce infinite slow" (click)="crearFactura()">
+        <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
     </button>
 
 </main>
