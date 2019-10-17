@@ -8,6 +8,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { AppRoutingModule } from './app.routing';
 import { PabellonesComponent } from './components/pabellones/pabellones.component';
+import { FirebaseComponent } from './components/firebase/firebase.component';
+import { RealtimeComponent } from './components/firebase/realtime/realtime.component';
+import { FirestoreComponent } from './components/firebase/firestore/firestore.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { PabellonesComponent } from './components/pabellones/pabellones.componen
     HomeComponent,
     ErrorComponent,
     NavbarComponent,
-    PabellonesComponent
+    PabellonesComponent,
+    FirebaseComponent,
+    RealtimeComponent,
+    FirestoreComponent
   ],
   imports: [
     BrowserModule,

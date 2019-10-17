@@ -11,7 +11,16 @@
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['/pabellones']">Pabellones</a>
             </li>
-
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdownId"
+                 data-toggle="dropdown">Firebase</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" 
+                            [routerLink]="['/firebase','realtime']">Realtime(Vehiculos)</a>
+                    <a class="dropdown-item" 
+                            [routerLink]="['/firebase','firestore']">Firestore</a>
+                </div>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
