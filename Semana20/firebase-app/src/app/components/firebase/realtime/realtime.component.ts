@@ -24,11 +24,32 @@ export class RealtimeComponent implements OnInit {
 
     // referencia.once('evento').then(()=>{}) => trae la data del nodo
     // una sola vez
+    // this.traerDataConOnce();
+    this.traerDataConOn();
+  }
 
+  traerDataConOn() {
+    this.refUsuarios.on('value', (data: DataSnapshot) => {
+      let objUsuarios = data.toJSON();
+      // iterando un obj
+      for (const key in objUsuarios) {
+        console.log(objUsuarios[key]);
+      }
+    });
+  }
+
+  traerDataConOnce() {
     this.refUsuarios.once('value').then((data: DataSnapshot) => {
-      console.log(data.toJSON());
-    })
+      let objUsuarios = data.toJSON();
+      // iterando un obj
 
+      for (const key in objUsuarios) {
+
+        console.log(objUsuarios[key]);
+
+      }
+
+    })
   }
 
 }
