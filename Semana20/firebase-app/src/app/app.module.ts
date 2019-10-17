@@ -12,6 +12,12 @@ import { FirebaseComponent } from './components/firebase/firebase.component';
 import { RealtimeComponent } from './components/firebase/realtime/realtime.component';
 import { FirestoreComponent } from './components/firebase/firestore/firestore.component';
 
+// Modulo de Firebase para angular
+import { AngularFireModule } from '@angular/fire';
+import { environment } from './../environments/environment';
+
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +31,9 @@ import { FirestoreComponent } from './components/firebase/firestore/firestore.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
