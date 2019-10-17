@@ -10,7 +10,7 @@ import { forkJoin } from 'rxjs';
 export class FacturasService {
 
   arregloRespuestas: Array<any> = [];
-  arregloTmp:Array<any> = [];
+  
   constructor(private _sHttp: HttpClient) { }
 
   getFacturas(): Observable<any> {
@@ -43,16 +43,18 @@ export class FacturasService {
   }
 
   deleteFacturas(arregloFacturas): Observable<any>{
-    
+    console.log("servicio",arregloFacturas);
     arregloFacturas.forEach(factura => {
+      console.log("foreach",factura)
       const respuesta = this._sHttp.delete(`${URL_BACKEND}/facturas/${factura.id}`);
-    
-      this.arregloRespuestas.push(respuesta);
-      this.arregloTmp = this.arregloRespuestas;
-      this.arregloRespuestas = [];
+      this.arregloRespuestas.push(respuesta); 
+      console.log("s",this.arregloRespuestas);
     });
-    
-    return forkJoin(this.arregloTmp);
+    try {
+      return forkJoin(this.arregloRespuestas);
+    } finally {
+      this.arregloRespuestas = [];
+    }
 
   }
 
