@@ -25,9 +25,29 @@ export class RealtimeComponent implements OnInit {
     // referencia.once('evento').then(()=>{}) => trae la data del nodo
     // una sola vez
     // this.traerDataConOnce();
-    this.traerDataConOn();
+    // this.traerDataConOn();
   }
 
+
+
+  /**
+   * Trae a los usuarios con la función 'on' e itea los objetos
+   * con un ciclo FOREACH
+   */
+  traerUsuariosConOn() {
+    this.refUsuarios.on('value', (usuariosSnap: DataSnapshot) => {
+      
+      usuariosSnap.forEach((usuario) => {
+
+      })
+    })
+  }
+
+
+  /**
+   * Trae la data con la funcion 'on' e itera los objetos
+   * con un ciclo FOR IN
+   */
   traerDataConOn() {
     this.refUsuarios.on('value', (data: DataSnapshot) => {
       let objUsuarios = data.toJSON();
@@ -37,18 +57,17 @@ export class RealtimeComponent implements OnInit {
       }
     });
   }
-
+  /**
+     * Trae la data con la funcion 'once' e itera los objetos
+     * con un ciclo FOR IN
+     */
   traerDataConOnce() {
     this.refUsuarios.once('value').then((data: DataSnapshot) => {
       let objUsuarios = data.toJSON();
       // iterando un obj
-
       for (const key in objUsuarios) {
-
         console.log(objUsuarios[key]);
-
       }
-
     })
   }
 
