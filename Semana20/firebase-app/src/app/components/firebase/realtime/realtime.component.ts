@@ -3,6 +3,9 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DatabaseReference, DataSnapshot } from '@angular/fire/database/interfaces';
 
+// importando clases para formularios reactivos
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,6 +15,8 @@ import Swal from 'sweetalert2';
 })
 export class RealtimeComponent implements OnInit {
 
+  // variable que va representar a todo el formulario
+  formulario: FormGroup;
 
   refUsuarios: DatabaseReference;
   listaUsuarios: Array<any>;
@@ -19,7 +24,31 @@ export class RealtimeComponent implements OnInit {
   constructor(private _realtime: AngularFireDatabase,
     private zone: NgZone) {
     this.refUsuarios = this._realtime.database.ref("usuarios");
+
+    // inicializando el formulario reactivo
+    this.formulario = new FormGroup(
+      {
+        "campo_nombre": new FormControl('', Validators.required),
+        "campo_apellido": new FormControl('', Validators.required),
+        "campo_imagen": new FormControl('', Validators.required),
+        "campo_email": new FormControl('', [
+          Validators.required,
+          Validators.pattern("[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}")
+        ])
+      }
+    );
   }
+  // evento submit del formulario reactivo
+  onSubmit() {
+    // imprimiendo todo el objeto formulario
+    console.log(this.formulario);
+    // obtener el objeto usuario del formulario
+    console.log(this.formulario.value);
+    // obtener la referencia al input del email 
+    console.log(this.formulario.get('campo_email').value);
+  }
+
+
 
   ngOnInit() {
     // console.log(this.refUsuarios.key);
@@ -117,8 +146,5 @@ export class RealtimeComponent implements OnInit {
         })
       }
     })
-
-
   }
-
 }

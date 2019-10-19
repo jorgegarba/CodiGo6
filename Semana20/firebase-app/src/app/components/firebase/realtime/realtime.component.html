@@ -4,35 +4,88 @@
         cargando...
     </div>
 
-    <table *ngIf="listaUsuarios" class="table table-bordered table-hover">
-        <thead>
-            <tr class="text-center">
-                <th>#</th>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Imagen</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let usu of listaUsuarios; let i=index" class="text-center">
-                <td>{{i}}</td>
-                <td>{{usu.id}}</td>
-                <td>{{usu.nombre}}</td>
-                <td>{{usu.apellido}}</td>
-                <td>
-                    <img [src]="usu.imagen" width="100">
-                </td>
-                <td>
-                    <button class="btn btn-info">
-                        <i class="fas fa-pen"></i>
-                    </button>
-                    <button class="btn btn-dark ml-3" (click)="eliminarUsuario(usu.id)">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="card">
+                <div class="card-header">
+                    Formulario de Creación de Usuarios
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="">Nombre:</label>
+                            <input type="text" class="form-control"
+                                placeholder="Ingrese su nombre"
+                                formControlName="campo_nombre">
+                            <small class="text-danger"
+                                *ngIf="!formulario.get('campo_nombre').valid && !formulario.get('campo_nombre').pristine">
+                                El campo nombre es obligatorio
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Apellido:</label>
+                            <input type="text" class="form-control"
+                                placeholder="Ingrese su Apellido"
+                                formControlName="campo_apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Imagen:</label>
+                            <input type="text" class="form-control"
+                                placeholder="Seleccione una imagen"
+                                formControlName="campo_imagen">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email:</label>
+                            <input type="text" class="form-control"
+                                placeholder="Ingrese su Email"
+                                formControlName="campo_email">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-block btn-primary">
+                                <i class="fas fa-save mr-2"></i>
+                                Crear Usuario
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <table *ngIf="listaUsuarios" class="table table-bordered table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usu of listaUsuarios; let i=index" class="text-center">
+                        <td>{{i}}</td>
+                        <td>{{usu.id}}</td>
+                        <td>{{usu.nombre}}</td>
+                        <td>{{usu.apellido}}</td>
+                        <td>
+                            <img [src]="usu.imagen" width="100">
+                        </td>
+                        <td>
+                            <button class="btn btn-info">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                            <button class="btn btn-dark ml-3" (click)="eliminarUsuario(usu.id)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 </section>

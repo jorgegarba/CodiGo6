@@ -18,6 +18,10 @@ import { environment } from './../environments/environment';
 
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
+// modulos necesarios para formularios reactivos
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],
