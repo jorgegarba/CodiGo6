@@ -1,10 +1,38 @@
-<p>realtime works!</p>
+<section class="container">
 
+    <div *ngIf="!listaUsuarios">
+        cargando...
+    </div>
 
-<div *ngIf="listaUsuarios">
-    LOS USUARIOS YA ESTAN AQUI EN LA VISTA
-</div>
-
-<div *ngIf="!listaUsuarios">
-    =(
-</div>
+    <table *ngIf="listaUsuarios" class="table table-bordered table-hover">
+        <thead>
+            <tr class="text-center">
+                <th>#</th>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usu of listaUsuarios; let i=index" class="text-center">
+                <td>{{i}}</td>
+                <td>{{usu.id}}</td>
+                <td>{{usu.nombre}}</td>
+                <td>{{usu.apellido}}</td>
+                <td>
+                    <img [src]="usu.imagen" width="100">
+                </td>
+                <td>
+                    <button class="btn btn-info">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                    <button class="btn btn-dark ml-3" (click)="eliminarUsuario(usu.id)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>

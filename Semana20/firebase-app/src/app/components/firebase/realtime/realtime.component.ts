@@ -3,6 +3,8 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DatabaseReference, DataSnapshot } from '@angular/fire/database/interfaces';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-realtime',
   templateUrl: './realtime.component.html',
@@ -92,6 +94,31 @@ export class RealtimeComponent implements OnInit {
         console.log(objUsuarios[key]);
       }
     })
+  }
+
+
+  eliminarUsuario(id) {
+    // db -> usuarios -> id (del regustro a borrar)
+
+    Swal.fire({
+      title: 'Borrar Registro',
+      text: '¿Seguro que quiere eliminar el registro?',
+      type: 'question',
+      showCancelButton: true,
+    }).then(rpta => {
+      if (rpta.value) {
+        this.refUsuarios.child(id).remove().then(() => {
+          Swal.fire({
+            title: 'Exito',
+            text: 'Registro eliminado correctamente',
+            type: 'success',
+            timer: 1500,
+          })
+        })
+      }
+    })
+
+
   }
 
 }
