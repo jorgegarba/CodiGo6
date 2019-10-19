@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DatabaseReference, DataSnapshot } from '@angular/fire/database/interfaces';
@@ -12,8 +12,10 @@ export class RealtimeComponent implements OnInit {
 
 
   refUsuarios: DatabaseReference;
+  listaUsuarios: Array<any>;
 
-  constructor(private _realtime: AngularFireDatabase) {
+  constructor(private _realtime: AngularFireDatabase,
+    private zone: NgZone) {
     this.refUsuarios = this._realtime.database.ref("usuarios");
   }
 
@@ -26,6 +28,9 @@ export class RealtimeComponent implements OnInit {
     // una sola vez
     // this.traerDataConOnce();
     // this.traerDataConOn();
+
+
+    this.traerUsuariosConOn();
   }
 
 
@@ -36,10 +41,28 @@ export class RealtimeComponent implements OnInit {
    */
   traerUsuariosConOn() {
     this.refUsuarios.on('value', (usuariosSnap: DataSnapshot) => {
-      
-      usuariosSnap.forEach((usuario) => {
 
+      let usuariosTmp = [];
+
+      usuariosSnap.forEach((usuario) => {
+        let objUsuarioTmp = {
+          id: usuario.key,
+          nombre: usuario.val().nombre,
+          apellido: usuario.val().apellido,
+          imagen: usuario.val().imagen
+        }
+        usuariosTmp.push(objUsuarioTmp);
+      });
+
+      // El servicio zone, sirve para ejercutar una tarea
+      // sincrona en la zona angular
+      // zona angular => cualquier componente visual de angular
+      this.zone.run(() => {
+        this.listaUsuarios = usuariosTmp;
       })
+
+      console.log(this.listaUsuarios);
+
     })
   }
 
