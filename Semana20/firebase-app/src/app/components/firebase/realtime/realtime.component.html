@@ -59,7 +59,8 @@
                                 formControlName="campo_email"
                                 [ngClass]="{
                                         'is-valid': formulario.get('campo_email').valid,
-                                        'is-invalid': !formulario.get('campo_email').valid && !formulario.get('campo_email').pristine
+                                        'is-invalid': !formulario.get('campo_email').valid && 
+                                        !formulario.get('campo_email').pristine
                                     }">
                             <small class="text-danger"
                                 *ngIf="formulario.get('campo_email').errors?.required && !formulario.get('campo_email').pristine">
@@ -71,7 +72,8 @@
                             </small>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-block btn-primary">
+                            <button class="btn btn-block btn-primary"
+                            [disabled]="!formulario.valid">
                                 <i class="fas fa-save mr-2"></i>
                                 Crear Usuario
                             </button>

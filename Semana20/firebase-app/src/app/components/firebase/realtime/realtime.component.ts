@@ -40,12 +40,42 @@ export class RealtimeComponent implements OnInit {
   }
   // evento submit del formulario reactivo
   onSubmit() {
+    Swal.fire({
+      title: 'Espere',
+      text: 'Estamos creando el registro',
+      type: 'info',
+      showConfirmButton: false,
+      allowOutsideClick: false,
+    });
     // imprimiendo todo el objeto formulario
     console.log(this.formulario);
     // obtener el objeto usuario del formulario
     console.log(this.formulario.value);
     // obtener la referencia al input del email 
     console.log(this.formulario.get('campo_email').value);
+
+    // armar el objeto para enviarlo a firebase
+    // 1. crear un ID a partir de la referencia al nodo 'usuarios'
+    let key = this.refUsuarios.push().key;
+
+    // 2. crear una referencia al nodo 'usuarios'=>'key'
+    let refKey = this.refUsuarios.child(key);
+
+    // 3. enviar el objeto usuario a su referencia
+    refKey.set({
+      nombre: this.formulario.get('campo_nombre').value,
+      apellido: this.formulario.get('campo_apellido').value,
+      email: this.formulario.get('campo_email').value,
+      imagen: this.formulario.get('campo_imagen').value,
+    }).then(() => {
+      Swal.fire({
+        title: 'Exito!',
+        text: 'Registro creado correctamente',
+        type:'success',
+        timer: 1000,
+      })
+    })
+
   }
 
 
