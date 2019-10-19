@@ -51,7 +51,6 @@ export class RealtimeComponent implements OnInit {
   }
   // evento submit del formulario reactivo
   onSubmit(miimg) {
-    console.log(miimg.files[0]);
 
     Swal.fire({
       title: 'Espere',
@@ -67,39 +66,52 @@ export class RealtimeComponent implements OnInit {
     // obtener la referencia al input del email 
     console.log(this.formulario.get('campo_email').value);
 
-
-    // SUBIR LA IMAGEN A FIREBASE
-
-    
-
     // armar el objeto para enviarlo a firebase
     // 1. crear un ID a partir de la referencia al nodo 'usuarios'
     let key = this.refUsuarios.push().key;
 
-    // 2. crear una referencia al nodo 'usuarios'=>'key'
-    let refKey = this.refUsuarios.child(key);
+    // SUBIR LA IMAGEN A FIREBASE
+    let archivo = miimg.files[0];
+    // si quiren subir la imagen a una carpeta/key
+    // "fotos/${key}"
+    const tarea = this._storage.upload('fotos/' + key, archivo);
+    tarea.then(() => {
+      // en este scope la imagen ya se subió con el nombre
+      // de la key generada
+      // ahora, obtendremos la URL de descarga de la 
+      // imagen 
+      this._storage.ref("fotos/" + key).getDownloadURL()
+        .subscribe((url_imagen) => {
 
-    // 3. enviar el objeto usuario a su referencia
-    refKey.set({
-      nombre: this.formulario.get('campo_nombre').value,
-      apellido: this.formulario.get('campo_apellido').value,
-      email: this.formulario.get('campo_email').value,
-      imagen: this.formulario.get('campo_imagen').value,
-    }).then(() => {
-      Swal.fire({
-        title: 'Exito!',
-        text: 'Registro creado correctamente',
-        type: 'success',
-        timer: 1000,
-      });
-      // reset() => limpia o borra todos los campos
-      // 
-      this.formulario.reset();
+          // 2. crear una referencia al nodo 'usuarios'=>'key'
+          let refKey = this.refUsuarios.child(key);
+          // 3. enviar el objeto usuario a su referencia
+          // update() => 
+          refKey.set({
+            nombre: this.formulario.get('campo_nombre').value,
+            apellido: this.formulario.get('campo_apellido').value,
+            email: this.formulario.get('campo_email').value,
+            imagen: url_imagen,
+          }).then(() => {
+            Swal.fire({
+              title: 'Exito!',
+              text: 'Registro creado correctamente',
+              type: 'success',
+              timer: 1000,
+            });
+            // reset() => limpia o borra todos los campos
+            // 
+            this.formulario.reset();
+          })
+
+        })
+
+
+
     })
 
+
   }
-
-
 
   ngOnInit() {
     // console.log(this.refUsuarios.key);
@@ -114,8 +126,6 @@ export class RealtimeComponent implements OnInit {
 
     this.traerUsuariosConOn();
   }
-
-
 
   /**
    * Trae a los usuarios con la función 'on' e itea los objetos
@@ -148,7 +158,6 @@ export class RealtimeComponent implements OnInit {
     })
   }
 
-
   /**
    * Trae la data con la funcion 'on' e itera los objetos
    * con un ciclo FOR IN
@@ -176,7 +185,6 @@ export class RealtimeComponent implements OnInit {
     })
   }
 
-
   eliminarUsuario(id) {
     // db -> usuarios -> id (del regustro a borrar)
 
@@ -199,19 +207,11 @@ export class RealtimeComponent implements OnInit {
     })
   }
 
-
   previsualizarFoto(event) {
     let archivo = event.target.files[0];
-
     let reader = new FileReader();
-
-
     reader.onload = () => {
       this.imgUrl = reader.result;
-      console.log(this.imgUrl);
-      console.log(this.formulario);
-
-
     }
     reader.readAsDataURL(archivo);
 
