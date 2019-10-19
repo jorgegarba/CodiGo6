@@ -15,8 +15,12 @@
                     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
                         <div class="form-group">
                             <label for="">Nombre:</label>
-                            <input type="text" class="form-control"
-                                placeholder="Ingrese su nombre"
+                            <input type="text" class="form-control "
+                            placeholder="Ingrese su nombre"
+                            [ngClass]="{
+                                        'is-valid': formulario.get('campo_nombre').valid,
+                                        'is-invalid': !formulario.get('campo_nombre').valid && !formulario.get('campo_nombre').pristine
+                                    }"
                                 formControlName="campo_nombre">
                             <small class="text-danger"
                                 *ngIf="!formulario.get('campo_nombre').valid && !formulario.get('campo_nombre').pristine">
@@ -25,21 +29,46 @@
                         </div>
                         <div class="form-group">
                             <label for="">Apellido:</label>
-                            <input type="text" class="form-control"
-                                placeholder="Ingrese su Apellido"
-                                formControlName="campo_apellido">
+                            <input type="text" class="form-control" placeholder="Ingrese su Apellido"
+                                formControlName="campo_apellido"
+                                [ngClass]="{
+                                        'is-valid': formulario.get('campo_apellido').valid,
+                                        'is-invalid': !formulario.get('campo_apellido').valid && !formulario.get('campo_apellido').pristine
+                                    }">
+                            <small class="text-danger"
+                                *ngIf="!formulario.get('campo_apellido').valid && !formulario.get('campo_apellido').pristine">
+                                El campo apellido es obligatorio
+                            </small>
                         </div>
                         <div class="form-group">
                             <label for="">Imagen:</label>
-                            <input type="text" class="form-control"
-                                placeholder="Seleccione una imagen"
-                                formControlName="campo_imagen">
+                            <input type="text" class="form-control" placeholder="Seleccione una imagen"
+                                formControlName="campo_imagen"
+                                [ngClass]="{
+                                        'is-valid': formulario.get('campo_imagen').valid,
+                                        'is-invalid': !formulario.get('campo_imagen').valid && !formulario.get('campo_imagen').pristine
+                                    }">
+                            <small class="text-danger"
+                                *ngIf="!formulario.get('campo_imagen').valid && !formulario.get('campo_imagen').pristine">
+                                El campo nombre es obligatorio
+                            </small>
                         </div>
                         <div class="form-group">
                             <label for="">Email:</label>
-                            <input type="text" class="form-control"
-                                placeholder="Ingrese su Email"
-                                formControlName="campo_email">
+                            <input type="text" class="form-control" placeholder="Ingrese su Email"
+                                formControlName="campo_email"
+                                [ngClass]="{
+                                        'is-valid': formulario.get('campo_email').valid,
+                                        'is-invalid': !formulario.get('campo_email').valid && !formulario.get('campo_email').pristine
+                                    }">
+                            <small class="text-danger"
+                                *ngIf="formulario.get('campo_email').errors?.required && !formulario.get('campo_email').pristine">
+                                El campo email es obligatorio
+                            </small>
+                            <small class="text-danger"
+                                *ngIf="formulario.get('campo_email').errors?.pattern && !formulario.get('campo_email').pristine">
+                                Debe ser un formato de email que incluya @ y .
+                            </small>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-block btn-primary">
