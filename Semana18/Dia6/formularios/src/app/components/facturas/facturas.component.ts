@@ -37,9 +37,9 @@ export class FacturasComponent implements OnInit, OnDestroy {
       .subscribe((resultado) => {
         this.facturas = resultado;
       });
-      console.log(this.facturasSeleccionadas)
+      
       this.facturasSeleccionadas = [];
-      console.log(this.facturasSeleccionadas)
+      
   }
 
 
