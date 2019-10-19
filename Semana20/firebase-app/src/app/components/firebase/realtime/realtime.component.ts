@@ -6,6 +6,10 @@ import { DatabaseReference, DataSnapshot } from '@angular/fire/database/interfac
 // importando clases para formularios reactivos
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+
+// importar servicio del storage
+import { AngularFireStorage } from '@angular/fire/storage';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,6 +19,12 @@ import Swal from 'sweetalert2';
 })
 export class RealtimeComponent implements OnInit {
 
+  // variables para la carga de imagenes 
+  imgUrl;
+  // variables para lcarga de imagenes
+
+  modoTabla: boolean = true;
+
   // variable que va representar a todo el formulario
   formulario: FormGroup;
 
@@ -22,7 +32,8 @@ export class RealtimeComponent implements OnInit {
   listaUsuarios: Array<any>;
 
   constructor(private _realtime: AngularFireDatabase,
-    private zone: NgZone) {
+    private zone: NgZone,
+    private _storage: AngularFireStorage) {
     this.refUsuarios = this._realtime.database.ref("usuarios");
 
     // inicializando el formulario reactivo
@@ -30,7 +41,7 @@ export class RealtimeComponent implements OnInit {
       {
         "campo_nombre": new FormControl('', Validators.required),
         "campo_apellido": new FormControl('', Validators.required),
-        "campo_imagen": new FormControl('', Validators.required),
+        "campo_imagen": new FormControl(null, Validators.required),
         "campo_email": new FormControl('', [
           Validators.required,
           Validators.pattern("[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}")
@@ -39,7 +50,9 @@ export class RealtimeComponent implements OnInit {
     );
   }
   // evento submit del formulario reactivo
-  onSubmit() {
+  onSubmit(miimg) {
+    console.log(miimg.files[0]);
+
     Swal.fire({
       title: 'Espere',
       text: 'Estamos creando el registro',
@@ -53,6 +66,11 @@ export class RealtimeComponent implements OnInit {
     console.log(this.formulario.value);
     // obtener la referencia al input del email 
     console.log(this.formulario.get('campo_email').value);
+
+
+    // SUBIR LA IMAGEN A FIREBASE
+
+    
 
     // armar el objeto para enviarlo a firebase
     // 1. crear un ID a partir de la referencia al nodo 'usuarios'
@@ -71,9 +89,12 @@ export class RealtimeComponent implements OnInit {
       Swal.fire({
         title: 'Exito!',
         text: 'Registro creado correctamente',
-        type:'success',
+        type: 'success',
         timer: 1000,
-      })
+      });
+      // reset() => limpia o borra todos los campos
+      // 
+      this.formulario.reset();
     })
 
   }
@@ -176,5 +197,24 @@ export class RealtimeComponent implements OnInit {
         })
       }
     })
+  }
+
+
+  previsualizarFoto(event) {
+    let archivo = event.target.files[0];
+
+    let reader = new FileReader();
+
+
+    reader.onload = () => {
+      this.imgUrl = reader.result;
+      console.log(this.imgUrl);
+      console.log(this.formulario);
+
+
+    }
+    reader.readAsDataURL(archivo);
+
+
   }
 }

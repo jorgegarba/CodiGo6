@@ -12,16 +12,13 @@
                     Formulario de Creación de Usuarios
                 </div>
                 <div class="card-body">
-                    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="formulario" (ngSubmit)="onSubmit(miimg)">
                         <div class="form-group">
                             <label for="">Nombre:</label>
-                            <input type="text" class="form-control "
-                            placeholder="Ingrese su nombre"
-                            [ngClass]="{
+                            <input type="text" class="form-control " placeholder="Ingrese su nombre" [ngClass]="{
                                         'is-valid': formulario.get('campo_nombre').valid,
                                         'is-invalid': !formulario.get('campo_nombre').valid && !formulario.get('campo_nombre').pristine
-                                    }"
-                                formControlName="campo_nombre">
+                                    }" formControlName="campo_nombre">
                             <small class="text-danger"
                                 *ngIf="!formulario.get('campo_nombre').valid && !formulario.get('campo_nombre').pristine">
                                 El campo nombre es obligatorio
@@ -30,8 +27,7 @@
                         <div class="form-group">
                             <label for="">Apellido:</label>
                             <input type="text" class="form-control" placeholder="Ingrese su Apellido"
-                                formControlName="campo_apellido"
-                                [ngClass]="{
+                                formControlName="campo_apellido" [ngClass]="{
                                         'is-valid': formulario.get('campo_apellido').valid,
                                         'is-invalid': !formulario.get('campo_apellido').valid && !formulario.get('campo_apellido').pristine
                                     }">
@@ -42,22 +38,23 @@
                         </div>
                         <div class="form-group">
                             <label for="">Imagen:</label>
-                            <input type="text" class="form-control" placeholder="Seleccione una imagen"
-                                formControlName="campo_imagen"
-                                [ngClass]="{
-                                        'is-valid': formulario.get('campo_imagen').valid,
-                                        'is-invalid': !formulario.get('campo_imagen').valid && !formulario.get('campo_imagen').pristine
-                                    }">
-                            <small class="text-danger"
+
+                            <img [src]="imgUrl" *ngIf="imgUrl" width="100">
+
+                            <input type="file" class="form-control" #miimg
+                            placeholder="Seleccione una imagen"                                
+                            formControlName="campo_imagen"
+                            (change)="previsualizarFoto($event)">
+
+                            <!-- <small class="text-danger"
                                 *ngIf="!formulario.get('campo_imagen').valid && !formulario.get('campo_imagen').pristine">
                                 El campo nombre es obligatorio
-                            </small>
+                            </small> -->
                         </div>
                         <div class="form-group">
                             <label for="">Email:</label>
                             <input type="text" class="form-control" placeholder="Ingrese su Email"
-                                formControlName="campo_email"
-                                [ngClass]="{
+                                formControlName="campo_email" [ngClass]="{
                                         'is-valid': formulario.get('campo_email').valid,
                                         'is-invalid': !formulario.get('campo_email').valid && 
                                         !formulario.get('campo_email').pristine
@@ -72,8 +69,7 @@
                             </small>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-block btn-primary"
-                            [disabled]="!formulario.valid">
+                            <button class="btn btn-block btn-primary" [disabled]="!formulario.valid">
                                 <i class="fas fa-save mr-2"></i>
                                 Crear Usuario
                             </button>
@@ -84,37 +80,74 @@
 
         </div>
         <div class="col-md-8">
-            <table *ngIf="listaUsuarios" class="table table-bordered table-hover">
-                <thead>
-                    <tr class="text-center">
-                        <th>#</th>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Imagen</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let usu of listaUsuarios; let i=index" class="text-center">
-                        <td>{{i}}</td>
-                        <td>{{usu.id}}</td>
-                        <td>{{usu.nombre}}</td>
-                        <td>{{usu.apellido}}</td>
-                        <td>
-                            <img [src]="usu.imagen" width="100">
-                        </td>
-                        <td>
-                            <button class="btn btn-info">
-                                <i class="fas fa-pen"></i>
-                            </button>
-                            <button class="btn btn-dark ml-3" (click)="eliminarUsuario(usu.id)">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+            <div class="card text-left">
+                <div class="card-header text-center">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-secondary" [ngClass]="{'active': modoTabla}"
+                            (click)="modoTabla = true">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" [ngClass]="{'active': !modoTabla}"
+                            (click)="modoTabla = false">
+                            <i class="fas fa-table"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <div class="card-columns" *ngIf="listaUsuarios && !modoTabla">
+                        <div class="card" *ngFor="let usu of listaUsuarios; let i=index">
+                            <img [src]="usu.imagen" class="card-img-top">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <strong>Nombre: </strong> {{usu.nombre}}
+                                </p>
+                                <p class="card-text">
+                                    <strong>Apellido: </strong> {{usu.apellido}}
+                                </p>
+                                <p class="card-text">
+                                    <strong>Email: </strong> {{usu.email}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table *ngIf="listaUsuarios && modoTabla" class="table table-bordered table-hover animated fadeIn">
+                        <thead>
+                            <tr class="text-center">
+                                <th>#</th>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Imagen</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usu of listaUsuarios; let i=index" class="text-center">
+                                <td>{{i}}</td>
+                                <td>{{usu.id}}</td>
+                                <td>{{usu.nombre}}</td>
+                                <td>{{usu.apellido}}</td>
+                                <td>
+                                    <img [src]="usu.imagen" width="100">
+                                </td>
+                                <td>
+                                    <button class="btn btn-info">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-dark ml-3" (click)="eliminarUsuario(usu.id)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
         </div>
     </div>
 

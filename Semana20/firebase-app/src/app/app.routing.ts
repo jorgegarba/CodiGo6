@@ -6,6 +6,7 @@ import { PabellonesComponent } from './components/pabellones/pabellones.componen
 import { FirebaseComponent } from './components/firebase/firebase.component';
 import { RealtimeComponent } from './components/firebase/realtime/realtime.component';
 import { FirestoreComponent } from './components/firebase/firestore/firestore.component';
+import { GuardAuthService } from './services/guard-auth.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   {
     path: 'firebase',
     component: FirebaseComponent,
+    canActivate: [GuardAuthService],
     children: [
       {
         path: 'realtime',
