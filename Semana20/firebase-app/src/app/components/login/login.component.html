@@ -7,16 +7,21 @@
                     <h4>Iniciar Sesión</h4>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form #formRegistro="ngForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
                             <label for="">Email:</label>
-                            <input type="email" placeholder="Ingrese su Email"
-                            class="form-control">
+                            <input type="email" placeholder="Ingrese su Email" class="form-control"
+                                [(ngModel)]="objUsuario.email" name="email">
                         </div>
                         <div class="form-group">
                             <label for="">Password:</label>
-                            <input type="password" placeholder="password"
-                            class="form-control">
+                            <input type="password" placeholder="password" class="form-control"
+                                [(ngModel)]="objUsuario.pass1" name="pass1">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">
+                                Iniciar Sesión
+                            </button>
                         </div>
                     </form>
                 </div>

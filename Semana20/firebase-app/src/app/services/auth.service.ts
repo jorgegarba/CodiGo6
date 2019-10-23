@@ -25,4 +25,20 @@ export class AuthService {
 
   }
 
+
+  iniciarSesion(correo, contra) {
+    let url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCj9KyssMJNqyT2bAECTGgTOBbRloL92PM";
+
+    let data = {
+      email: correo,
+      password: contra,
+      returnSecureToken: true
+    };
+
+    let misHeaders = new HttpHeaders().set("Content-type", "application/json");
+
+    return this._sHttp.post(url, JSON.stringify(data), { headers: misHeaders });
+
+  }
+
 }
