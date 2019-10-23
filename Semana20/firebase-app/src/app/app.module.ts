@@ -21,7 +21,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 // modulos necesarios para formularios reactivos
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/login/register.component';
 
+// importanto MODULO PARA CONSUMO DE HTTP
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PabellonesComponent,
     FirebaseComponent,
     RealtimeComponent,
-    FirestoreComponent
+    FirestoreComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

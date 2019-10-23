@@ -5,7 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    
+    apiKey: "AIzaSyCj9KyssMJNqyT2bAECTGgTOBbRloL92PM",
+    authDomain: "restprueba-992e9.firebaseapp.com",
+    databaseURL: "https://restprueba-992e9.firebaseio.com",
+    projectId: "restprueba-992e9",
+    storageBucket: "restprueba-992e9.appspot.com",
+    messagingSenderId: "653541246699",
+    appId: "1:653541246699:web:1983e1bcadff457b2360ae"
   }
 };
 

@@ -1,3 +1,5 @@
+import { RegisterComponent } from './components/login/register.component';
+import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -10,7 +12,18 @@ import { GuardAuthService } from './services/guard-auth.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'pabellones', component: PabellonesComponent },
+  {
+    path: 'pabellones',
+    component: PabellonesComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
   {
     path: 'firebase',
     component: FirebaseComponent,
