@@ -1,6 +1,7 @@
 import express from 'express';
 import { producto_router } from './../rutas/Producto';
 import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
 export class Servidor {
 
@@ -8,8 +9,8 @@ export class Servidor {
   public puerto: number;
 
   constructor() {
-    this.app = express();
     
+    this.app = express();
     this.puerto = 3000;
     //bodyParser es un middleware que puede leer el body de mis peticiones
     //ya sea de forms o objetos json que me envie el cliente
@@ -17,6 +18,8 @@ export class Servidor {
     this.app.use(bodyParser.json());
     //bodyParser.urlencoded para leer información de forms
     this.app.use(bodyParser.urlencoded({extended:true}));
+    //si utilizamos middlewares como BodyParser debemos asegurarnos que nuestras rutas esten al final
+    this.app.use(morgan('dev'));
     this.configurarRutas();
   }
 
