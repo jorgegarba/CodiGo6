@@ -2,6 +2,8 @@ import express from 'express';
 import { producto_router } from './../rutas/Producto';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import { pruebaConexion } from '../config/sequelize';
+import { sequelize } from '../config/sequelize';
 
 export class Servidor {
 
@@ -30,6 +32,19 @@ export class Servidor {
   start() {
     this.app.listen(this.puerto, () => {
       console.log("Servidor corriendo correctamente en el puerto " + this.puerto);
-    })
+
+      pruebaConexion();
+      //force: true --> cada vez que incie el proyecto y se ejecute, va a eliminar tablas,contenido, relaciones, que tengan para crear unas desde 0
+
+      //force: false --> cada vez que inicie no tocara nada sin embargo si creamos una nueva tabla la creará sin problemas
+
+      //sync sincroniza/crea, los modelos con la base de datos
+      sequelize.sync({force:false}).then(()=>{
+        console.log("Tablas creadas con exito");
+      }).catch((error:any)=>{
+        console.log("Algo a pasao llama a alguien de CodiGO :(", error);
+      });
+
+    });
   }
 }
