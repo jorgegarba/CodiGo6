@@ -39,7 +39,7 @@ export class Servidor {
       //force: false --> cada vez que inicie no tocara nada sin embargo si creamos una nueva tabla la creará sin problemas
 
       //sync sincroniza/crea, los modelos con la base de datos
-      sequelize.sync({force:true}).then(()=>{
+      sequelize.sync({force:false}).then(()=>{
         console.log("Tablas creadas con exito");
       }).catch((error:any)=>{
         console.log("Algo a pasao llama a alguien de CodiGO :(", error);
