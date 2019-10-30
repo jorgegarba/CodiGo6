@@ -1,7 +1,12 @@
-import {Sequelize} from 'sequelize';
+import {Sequelize, Model} from 'sequelize';
 
 export var producto_model = (sequelize:Sequelize, type:any) => {
-    var producto_model = sequelize.define('t_producto',{
+
+    class producto_model extends Model{};
+
+    // var producto_model = sequelize.define('t_producto',{
+    //.init({campos de mi tabla,opciones<aca va ir el nombre de mitabla>})
+    producto_model.init({   
         prod_id:{
             type:type.INTEGER,
             primaryKey:true,
@@ -19,6 +24,8 @@ export var producto_model = (sequelize:Sequelize, type:any) => {
         },
     },
     {
+        sequelize,
+        modelName: 't_productos',
         timestamps:false
     });
 
