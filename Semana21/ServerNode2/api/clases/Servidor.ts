@@ -35,13 +35,13 @@ export class Servidor {
     this.app.listen(this.puerto, () => {
       console.log("Servidor corriendo correctamente en el puerto " + this.puerto);
 
-      pruebaConexion();
+      // pruebaConexion();
       //force: true --> cada vez que incie el proyecto y se ejecute, va a eliminar tablas,contenido, relaciones, que tengan para crear unas desde 0
 
       //force: false --> cada vez que inicie no tocara nada sin embargo si creamos una nueva tabla la creará sin problemas
 
       //sync sincroniza/crea, los modelos con la base de datos
-      sequelize.sync({force:false}).then(()=>{
+      sequelize.sync({force:true}).then(()=>{
         console.log("Tablas creadas con exito");
       }).catch((error:any)=>{
         console.log("Algo a pasao llama a alguien de CodiGO :(", error);
