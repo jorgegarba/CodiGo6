@@ -27,6 +27,10 @@ export var empleado_model = (sequelize:Sequelize, type:any) => {
         timestamps:false
     });
 
+    empleado_model.prototype.mostrarDatos = function(){
+        console.log(`Datos`);
+    }
+
     return empleado_model;
 
 }

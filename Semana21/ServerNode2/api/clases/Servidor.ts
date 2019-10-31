@@ -1,5 +1,6 @@
 import express from 'express';
 import { producto_router } from './../rutas/Producto';
+import { empleado_router } from './../rutas/empleado';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import { pruebaConexion } from '../config/sequelize';
@@ -27,6 +28,7 @@ export class Servidor {
 
   configurarRutas() {
     this.app.use(producto_router);
+    this.app.use(empleado_router);
   }
 
   start() {
@@ -44,7 +46,6 @@ export class Servidor {
       }).catch((error:any)=>{
         console.log("Algo a pasao llama a alguien de CodiGO :(", error);
       });
-
     });
   }
 }
