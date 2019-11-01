@@ -1,3 +1,4 @@
+import { conexion } from './../configuracion/sequelize';
 import express, { Request, Response } from 'express';
 
 export class Server {
@@ -21,6 +22,13 @@ export class Server {
   start() {
     this.app.listen(this.puerto, () => {
       console.log(`Servidor OK en el puerto ${this.puerto}`);
+      // force:true, elimina todas las tablas y las crea nuevamente
+      // force:false, si las tablas no existen en la base de datos
+      // las crea. Si las tablas ya existían en la base de datos
+      // sólo crea las nuevas tablas en caso de que hubieran
+      conexion.sync({ force: true }).then(() => {
+        console.log("Base de datos creada correctamente");        
+      })
     });
   }
 
