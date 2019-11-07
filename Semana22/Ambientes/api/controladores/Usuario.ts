@@ -21,5 +21,25 @@ export let crearUsuario = (req: Request, res: Response) => {
         })
     })
 }
-export let encontrarUsuByNomOApe = (req: Request, res: Response) => { }
+export let encontrarUsuByNomOApe = (req: Request, res: Response) => {
+    let busqueda = req.body.busqueda;
+    Usuario.findAll({
+        where: {
+            [Op.or]: [
+                {
+                    usu_nom: {
+                        [Op.substring]: busqueda
+                    }
+                },
+                {
+                    usu_ape: {
+                        [Op.substring]: busqueda
+                    }
+                }
+            ]
+        }
+    }).then((rpta:any)=>{
+        res.json(rpta);
+    })
+}
 export let iniciarSesion = (req: Request, res: Response) => { }
