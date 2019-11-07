@@ -32,7 +32,7 @@ export class Server {
     });
     this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-    this.app.use(pabellon_router);
+    this.app.use('/api',pabellon_router);
   }
 
   start() {
@@ -42,7 +42,7 @@ export class Server {
       // force:false, si las tablas no existen en la base de datos
       // las crea. Si las tablas ya existían en la base de datos
       // sólo crea las nuevas tablas en caso de que hubieran
-      conexion.sync({ force: true }).then(() => {
+      conexion.sync({ force: false }).then(() => { 
         console.log("Base de datos creada correctamente");
       })
     });
