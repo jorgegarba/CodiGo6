@@ -5,6 +5,8 @@ let bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
 
 import * as swaggerDocument from './../apidocs/documentacion.json';
+import { aulas_router } from '../rutas/Aula';
+import { usuario_router } from '../rutas/Usuario';
 
 
 export class Server {
@@ -33,6 +35,8 @@ export class Server {
     this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
     this.app.use('/api',pabellon_router);
+    this.app.use('/api',aulas_router);
+    this.app.use('/api',usuario_router);
   }
 
   start() {
