@@ -42,4 +42,35 @@ export let encontrarUsuByNomOApe = (req: Request, res: Response) => {
         res.json(rpta);
     })
 }
-export let iniciarSesion = (req: Request, res: Response) => { }
+export let iniciarSesion = (req: Request, res: Response) => {
+    let {usu_email, usu_pass} = req.body;
+    // tenemos que encriptar la contraseñe en hexadecimal
+    let buff = Buffer.from(usu_pass,'utf-8').toString('ascii');
+    Usuario.findOne({
+        where: {
+            usu_email: usu_email
+        }
+    }).then((objUsuario:any)=>{
+        if(objUsuario){
+            let validarPass = objUsuario.validPass(buff);
+            if(validarPass){
+                let token = objUsuario.generarJWT();
+                res.status(200).json({
+                    message:'Ok',
+                    token
+                })
+            }else{
+                res.status(500).json({
+                    message:'error',
+                    content:'Usuario o contraseña incorrectos.'
+                })
+            }
+
+        }else{
+            res.status(500).json({
+                message: 'error',
+                content: 'No se encontro el usuario'
+            })
+        }
+    })
+ }

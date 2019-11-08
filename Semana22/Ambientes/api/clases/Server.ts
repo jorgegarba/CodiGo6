@@ -7,6 +7,7 @@ const swaggerUi = require('swagger-ui-express');
 import * as swaggerDocument from './../apidocs/documentacion.json';
 import { aulas_router } from '../rutas/Aula';
 import { usuario_router } from '../rutas/Usuario';
+import { reserva_router } from '../rutas/Rerserva';
 
 
 export class Server {
@@ -37,6 +38,7 @@ export class Server {
     this.app.use('/api',pabellon_router);
     this.app.use('/api',aulas_router);
     this.app.use('/api',usuario_router);
+    this.app.use('/api',reserva_router);
   }
 
   start() {
