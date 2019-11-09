@@ -1,0 +1,29 @@
+COMANDOS NPM para crear un proyecto en NODe
+npm init => aca se define el comienzo del proyecto nos pedira datos como el package name, version del proyecto, descripcion, punto de entrada ( donde se comenzará a ejecutar nuestro proyecto), comandos para test, entre otros, si queremos dejarlo todo en default y no hacer ningun cambio usamos el siguiente comando 
+npm init -y 
+luego tenemos que definir que nuestro proyecto (si lo deseamos) va a ser en tipescript, para ello usamos el comando:
+tsc --init => eso creará un archivo de configuracion de nuestro typescript, posteriormente abrimos el archivo creado y modificamos la linea "target": "es5" por "target": "es6" y habilitamos la linea "outDir" (por defecto la linea #15) y especificamos donde estará nuetro proyecto transpilado en javascript, en nuestros proyectos usamos ./dist, quedando de la siguiente manera: "outDir": "./dist"
+si nosotros queremos usar nodemon (demonio de node que va a estar escuchando todos los cambios y recompilando los archivos cada vez que guardamos), tenemos que modificar el package.json, dentro de scripts ponemos lo siguiente: 
+"start": "nodemon ./dist/index.js"
+eso hara que cuando nosotros pongamos el comando "npm start" recurra a ese referido. Y ya, eso es todo, lo unico que nos queda es crear un archivo "index.ts" y ejecutar lo siguiente:
+tsc --w => comando para que nuestro typescript se quede escuchando algun cambio en algun archivo typescript
+npm start => comando para levantar nuestro proyecto en node
+===========================
+====== INSTALACIONES ======
+===========================
+En nuestro proyecto de Ambientes instalamos los siguientes paquetes:
+npm i body-parser 	=> para leer todo lo que nos llega por medio del body (cliente) para nuestra api (https://www.npmjs.com/package/body-parser)
+npm i express 		=> para usar los verbos HTTP (GET,POST, PUT, DELETE...) hacia nuestra API (https://expressjs.com/)
+npm i jsonwebtoken	=> para usar las JWT para validacion de middlewares (https://jwt.io/)
+npm i mysql2		=> ODBC para poner conectarnos a una base de datos con motor de MYSQL
+npm i sequelize		=> ORM para poder hacer consultas mas sencillas (https://sequelize.org/master/manual/getting-started.html) 
+npm i swagger-ui-express=> documentador de rutas para nuestro proyecto (https://swagger.io/) (https://editor.swagger.io/) 
+
+===========================
+Asi como tenemos las dependencias de produccion, tenemos las dependencias de desarrollo que solo van a ayudar cuando estemos desarrollando mas no cuando ya pasemos a produccion, generalmente son los types que nos ayudan a escribir correctamente el codigo, en nuestro proyecto de Ambientes, instalamos las siguientes:
+npm i --save-dev @types/bluebird
+npm i --save-dev @types/crypto-js
+npm i --save-dev @types/express
+npm i --save-dev @types/node
+npm i --save-dev @types/validator
+
