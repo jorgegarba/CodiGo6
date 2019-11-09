@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+// le podemos dar estilos a uno de nuestros elementos a cada uno por separado
+import '../css/mascota.css';
 const Mascota = (props) => {
     return (
         <div className="mascota">

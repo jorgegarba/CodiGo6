@@ -1,0 +1,14 @@
+.mascota{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 1px aquamarine;
+    margin-right: 10px;
+}
+.tipo{
+    font-weight: 600;
+}
+.mascota .nombre{
+    font-size: 18px;
+}

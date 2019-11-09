@@ -8,6 +8,7 @@ const Mascotas = (props) => {
     return (
         <div>
             {props.mascotas.map((m,indice)=>{
+                // Siempre que vamos a crear hijos a partir de una iteracion se tiene que pasar el parametro key
                 return(<Mascota objMascota={m} key={indice}/>)
             })
             }
