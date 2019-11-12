@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
+import Productos from './components/Productos';
 class App extends Component {
   // como toda clase en JS, podemos tener un constructor para inicializar las variables
   // En una clase las props(propiedades) se reciben por medio del constructor
@@ -23,6 +24,7 @@ class App extends Component {
     return (
       <div >
         <Navbar marca={"CodiGo"} />
+        <Productos productos={this.state.productos}/>
       </div>
 
     );
