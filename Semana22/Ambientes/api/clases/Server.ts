@@ -4,7 +4,7 @@ import { pabellon_router } from './../rutas/Pabellon';
 let bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
 
-import * as swaggerDocument from './../apidocs/documentacion.json';
+import * as swaggerDocument from './../apidocs/swagger.json';
 import { aulas_router } from '../rutas/Aula';
 import { usuario_router } from '../rutas/Usuario';
 import { reserva_router } from '../rutas/Rerserva';
