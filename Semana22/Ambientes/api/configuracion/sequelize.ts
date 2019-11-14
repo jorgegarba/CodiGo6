@@ -6,11 +6,11 @@ import { reserva_model } from '../modelos/Reserva';
 const Sequelize = require("sequelize");
 
 export const conexion = new Sequelize(
-  'aulas', // DATABASE NAME
-  'root',  // USERNAME
-  'root',  // PASSWORD
+  'nIsFWxEYRi', // DATABASE NAME
+  'nIsFWxEYRi',  // USERNAME
+  'ZG6LwNUQI7',  // PASSWORD
   {
-  host: 'localhost', // SERVER NAME: remotemysql.com:3306
+  host: 'remotemysql.com', // SERVER NAME: remotemysql.com:3306
   dialect: 'mysql',
   timezone: '-05:00',
   // configuración para lectura de fechas en la base de datos

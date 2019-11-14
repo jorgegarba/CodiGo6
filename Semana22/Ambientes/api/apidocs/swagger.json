@@ -1,0 +1,166 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Proyecto realizado en CodiGo para la reserva de aulas de un sistema.",
+    "version": "1.0.0",
+    "title": "Reserva de Aulas",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "ederiveroman@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "probandonodeaqp.heroku.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "pabellon",
+      "description": "Todo relacionado acerca de los Pabellones para la reserva de las aulas"
+    },
+    {
+      "name": "store",
+      "description": "Access to Petstore orders"
+    },
+    {
+      "name": "user",
+      "description": "Operations about user",
+      "externalDocs": {
+        "description": "Find out more about our store",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/pabellon": {
+      "get": {
+        "tags": [
+          "pabellon"
+        ],
+        "summary": "Traer todos los pabellones de nuestra base de datos",
+        "description": "Hacemos una consulta a nuestra base de datos para que nos devuelva todos los pabellones ingresados",
+        "operationId": "getAllPabellon",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Todos los pabellones",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pabellon"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "pabellon"
+        ],
+        "summary": "Ingresar Pabellon",
+        "description": "Mandamos un pabellon por el body y este se agregar a nuestra tabla en nuestra base de datos",
+        "operationId": "addPabellon",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "El objeto Pabellon que va a ser ingresado a la base de datos",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pabellon"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "El pabellon fue creado con exito"
+          },
+          "400": {
+            "description": "Hubo un error al crear el pabellon"
+          }
+        }
+      }
+    },
+    "/pabellon/{id}": {
+      "get": {
+        "tags": [
+          "pabellon"
+        ],
+        "summary": "Traer un pabellon segun su id",
+        "description": "Hacemos una consulta a nuestra base de datos para que nos devuelva el pabellon seleccionado ",
+        "operationId": "getPabellonById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id del pabellon para ser buscado",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pabellon",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pabellon"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Pabellon": {
+      "type": "object",
+      "properties": {
+        "pab_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pab_desc": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

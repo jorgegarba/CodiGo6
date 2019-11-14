@@ -24,6 +24,17 @@ export default class Productos extends Component {
         // FUNCIONALIDAD: se usa generalmente para traer data mediante las API's y para settear objetos JQUERY, como los DatePicker, modales, datatables, etc.
         console.log("Productos ComponentDidMount");
     }
+    generarAleatorio= ()=>{
+        let productoTemporal ={
+            id: Math.floor(Math.random()*(50-5))+5,
+            nombre: "Producto Aleatorio",
+            precio: Math.random()*(10000-1000)+1000
+        };
+        // Estamos sobreescribiendo los productos pero antes guardamos lo que teniamos con "...this.state.productos" y lo que va despues de la coma es lo que se va a insertar, en este caso, el objeto productoTemporal
+        this.setState({
+            productos:[...this.state.productos, productoTemporal]
+        })
+    }
 
     render() {
         console.log("Productos Render");
@@ -39,9 +50,29 @@ export default class Productos extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {
+                        productos.map(producto=>{
+                            return(
+                                <tr key={producto.id}>
+                                    <td>{producto.id}</td>
+                                    <td>{producto.nombre}</td>
+                                    <td>{producto.precio}</td>
+                                    <td><button className="btn btn-block btn-success" onClick={
+                                        ()=>{
+                                            this.seleccionaProducto(producto);
+                                        }
+                                    }>selecionar {producto.nombre}</button></td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
-            </table> </div>
+            </table> 
+            {
+                this.state.producto.nombre ? (<p>Producto Seleccionado: {this.state.producto.nombre}</p>) : (<p>Producto no seleccionado</p>)
+            }
+            <button onClick={this.generarAleatorio}>Genera un producto Aleatorio</button>
+            </div>
         );
     }
 }
