@@ -17,11 +17,23 @@ export class Server {
     this.app = express();
     // obtener el puerto que nos asignará heroku
     // o establer por defecto el puerto 3000
-    this.puerto = process.env.PORT || 3000;
+    this.puerto = process.env.PORT || 5000;
+    this.habilitarCORS();
     // la configuracion de body-parser, siempre debe estas
     // antes de configurar las rutas
     this.configurarBodyParser();
     this.configurarRutas();
+  }
+
+  habilitarCORS(){
+    this.app.use((req, res, next) => {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+      res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+      res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+      next();
+    });
+
   }
 
   configurarBodyParser() {

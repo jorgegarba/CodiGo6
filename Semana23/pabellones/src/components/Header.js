@@ -20,7 +20,7 @@ export default class Header extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to={"/reseras"}>
+                <NavLink className="nav-link" to={"/reservas"}>
                   Reservas
                 </NavLink>
               </li>
