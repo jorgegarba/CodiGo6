@@ -5,13 +5,15 @@ export default class Tarjeta extends Component {
         return (
             <div>
                 <label>
-                    Nombre Pabellon
+                    Nombre Pabellon: {this.props.nombrePabellon}
                 </label>
+                <br/>
                 <label>
-                    Encargado
+                    Encargado: {this.props.encargado}
                 </label>
+                <br/>
                 <label>
-                    Area
+                    Area: {this.props.area}
                 </label>
             </div>
         )

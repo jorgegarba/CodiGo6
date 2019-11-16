@@ -15,6 +15,7 @@ class Registro extends React.Component {
     manejarCambios = (e) => {
         this.setState({
             form:{
+                ...this.state.form,
                 [e.target.name]:e.target.value
             }
         })
@@ -35,7 +36,11 @@ class Registro extends React.Component {
             </div>
 
             <div className="col-6">
-                <Tarjeta/>
+                <Tarjeta 
+                  nombrePabellon={this.state.form.nombrePabellon}
+                  encargado={this.state.form.encargado}
+                  area={this.state.form.area}
+                />
             </div>
 
           </div>

@@ -8,7 +8,7 @@ const Sequelize = require("sequelize");
 export const conexion = new Sequelize(
   'aulas',// 'nIsFWxEYRi', // DATABASE NAME
   'root',// 'nIsFWxEYRi',  // USERNAME
-  'root',// 'ZG6LwNUQI7',  // PASSWORD
+  'admin',// 'ZG6LwNUQI7',  // PASSWORD
   {
     host: 'localhost', // SERVER NAME: remotemysql.com:3306
     dialect: 'mysql',
