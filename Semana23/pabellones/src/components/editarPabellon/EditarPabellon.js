@@ -1,20 +1,51 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Swal from 'sweetalert2';
 import { withRouter } from "react-router-dom";
+
 class EditarPabellon extends Component {
   state = {
     loading: true,
     error: null,
-    nombrePabellon: ""
+    pabellon:{}
   };
 
   manejarSubmit = e => {
     e.preventDefault();
+    if(this.state.pabellon.pab_nom.trim() === ''){
+        this.setState({
+            error:true
+        })
+    }else{
+        let misHeaders = {
+            "Content-Type":"application/json"
+        };
+        let data = {
+            pabellon:{
+                ...this.state.pabellon
+            }
+        }
+        console.log(this.state.pabellon);
+        axios.put("http://localhost:5000/api/pabellon",data,{misHeaders}).then(rpta=>{
+            if(rpta.status===200){
+                Swal.fire(
+                    'Actualizado!!!!',
+                    'Pabellón actualizado correctamente',
+                    'success'
+                )
+            }else{
+                console.log("Error al actualizar");
+            }
+        })
+    }
   };
 
   manejarCambio = e => {
     this.setState({
-      nombrePabellon: e.target.value
+      pabellon:{
+          ...this.state.pabellon,
+          [e.target.name]: e.target.value
+      }
     });
   };
 
@@ -26,7 +57,8 @@ class EditarPabellon extends Component {
     this.setState({ loading: true, error: null });
     const id = this.props.match.params.pabId;
     axios.get(`http://localhost:5000/api/pabellon/${id}`).then(rpta => {
-      this.setState({loading:false, nombrePabellon: rpta.data.pabellon.pab_nom })
+        console.log(rpta)
+      this.setState({loading:false, pabellon:rpta.data.pabellon })
     }).catch(error=>{
         this.setState({loading:false,error:error});
     });
@@ -47,14 +79,14 @@ class EditarPabellon extends Component {
                 <label>Nombre de Pabellón</label>
                 <input
                   type="text"
-                  name="nombrePabellon"
+                  name="pab_nom"
                   onChange={this.manejarCambio}
-                  value={this.state.nombrePabellon}
+                  value={this.state.pabellon.pab_nom}
                   className="form-control"
                 ></input>
               </div>
+              <button className="btn btn-primary">Guardar Cambios</button>
             </form>
-            <button className="btn btn-primary">Guardar Cambios</button>
           </div>
         </div>
       </div>
