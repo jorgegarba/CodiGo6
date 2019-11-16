@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Header from './components/Header';
 import Pabellon from './components/pabellon/Pabellon';
 import Reserva from './components/reserva/Reserva';
+import Registro from './components/registro/Registro';
 
 // importando enrutamiento
 import {
@@ -26,6 +27,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path={"/pabellones"} component={Pabellon} />
             <Route exact path={"/reservas"} component={Reserva} />
+            <Route exact path={"/registro"} component={Registro} />
           </Switch>
 
         </Router>
