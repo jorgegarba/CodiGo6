@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2';
-export default class Formulario extends Component {
+import {withRouter} from 'react-router-dom';
+class Formulario extends Component {
   state = {
     nombrePabellon: "",
     error: false
@@ -51,7 +52,9 @@ export default class Formulario extends Component {
                 'Pabellon Creado!',
                 'Exito al creado el pabellon',
                 'success'
-            )
+            ).then(()=>{
+                this.props.history.push('/pabellones');
+            })
             } else {
               console.log("Error algo ha pasado");
             }
@@ -111,3 +114,6 @@ export default class Formulario extends Component {
     );
   }
 }
+
+
+export default withRouter(Formulario);

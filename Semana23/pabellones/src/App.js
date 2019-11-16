@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Pabellon from './components/pabellon/Pabellon';
 import Reserva from './components/reserva/Reserva';
 import Registro from './components/registro/Registro';
+import EditarPabellon from './components/editarPabellon/EditarPabellon';
 
 // importando enrutamiento
 import {
@@ -28,6 +29,7 @@ export default class App extends Component {
             <Route exact path={"/pabellones"} component={Pabellon} />
             <Route exact path={"/reservas"} component={Reserva} />
             <Route exact path={"/registro"} component={Registro} />
+            <Route exact path={"/pabellones/:pabId/edit"} component={EditarPabellon}/>
           </Switch>
 
         </Router>
