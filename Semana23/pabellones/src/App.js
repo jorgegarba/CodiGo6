@@ -33,7 +33,6 @@ export default class App extends Component {
             <Route exact path={"/pabellones/:pabId/edit"} component={EditarPabellon}/>
             <Route component={PageError}/>
           </Switch>
-
         </Router>
       </Fragment>
     )
