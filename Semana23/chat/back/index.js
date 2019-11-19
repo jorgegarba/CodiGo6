@@ -18,10 +18,10 @@ io.on('connection', (socket) => {
 
     socket.on('join', ({name , room},callback) => {
         console.log(name, room);
-        const error = true;
-        if(error){
-            callback({error:'Algo ha pasado:('});
-        }
+        // const error = true;
+        // if(error){
+        //     callback({error:'Algo ha pasado:('});
+        // }
     });
 
     socket.on('disconnect',() => {
