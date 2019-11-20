@@ -39,22 +39,29 @@ export default class App extends Component {
     this._sAuth.login(email, pass).then(rpta => {
       console.log(rpta);
       if (rpta.status === 200) {
-        this._sAuth.guardarToken(rpta.token);
+        this._sAuth.guardarToken(rpta.data.token);
         this.setState({
           isLogged: true
         });
+        console.log(this.state.isLogged);
       }
     });
   };
 
+  signout = () => {
+    this._sAuth.cerrarSesion();
+    this.setState({ isLogged: false });
+  }
+
   render() {
     return (
       <Fragment>
-        
         <Router>
-          <Header />
-          
+          <Header isLogged={this.state.isLogged}
+            signout={this.signout} />
+
           <Switch>
+            {/* evaluamos si esta loqueado en la ruta base, redirigimos a pabelloón y si no retornamos al login */}
             <Route
               exact
               path="/"
@@ -66,21 +73,65 @@ export default class App extends Component {
                 }
               }}
             />
-            {this.state.isLogged ?
-              (<Redirect to={{ pathname: "/pabellones" }} />) :
-              (<Route
-                exact
-                path={"/login"}
-                render={() => {
-                  return <Login signin={this.signin} />
-                }} />)}
-            <Route exact path={"/pabellones"} component={Pabellon} />
-            <Route exact path={"/reservas"} component={Reserva} />
-            <Route exact path={"/registro"} component={Registro} />
+
             <Route
               exact
-              path={"/pabellones/:pabId/edit"}
-              component={EditarPabellon}
+              path="/login"
+              render={() => {
+                if (this.state.isLogged) {
+                  return <Pabellon />;
+                } else {
+                  return <Login signin={this.signin} />;
+                }
+              }}
+            />
+
+            <Route
+              exact
+              path="/pabellones"
+              render={() => {
+                if (this.state.isLogged) {
+                  return <Pabellon />;
+                } else {
+                  return <Login signin={this.signin} />;
+                }
+              }}
+            />
+
+            <Route
+              exact
+              path="/registro"
+              render={() => {
+                if (this.state.isLogged) {
+                  return <Registro />;
+                } else {
+                  return <Login signin={this.signin} />;
+                }
+              }}
+            />
+
+            <Route
+              exact
+              path="/reservas"
+              render={() => {
+                if (this.state.isLogged) {
+                  return <Reserva />;
+                } else {
+                  return <Login signin={this.signin} />;
+                }
+              }}
+            />
+
+            <Route
+              exact
+              path="/pabellones/:pabId/edit"
+              render={() => {
+                if (this.state.isLogged) {
+                  return <EditarPabellon />;
+                } else {
+                  return <Login signin={this.signin} />;
+                }
+              }}
             />
             <Route component={PageError} />
           </Switch>

@@ -6,7 +6,7 @@ const Join = () => {
     const [room,setRoom] = useState('');
 
     return (
-        <div className="container">
+        <div className="container mt-3">
             <div className="row">
                 <div className="col-4"></div>
                 <div className="col-4">

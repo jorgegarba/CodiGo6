@@ -4,17 +4,18 @@ export default class Tarjeta extends Component {
     render() {
         return (
             <div>
-                <label>
+                <h4>Datos Del registro</h4>
+                <p>
                     Nombre Pabellon: {this.props.nombrePabellon}
-                </label>
-                <br/>
-                <label>
+                </p>
+               
+                <p>
                     Encargado: {this.props.encargado}
-                </label>
-                <br/>
-                <label>
+                </p>
+                
+                <p>
                     Area: {this.props.area}
-                </label>
+                </p>
             </div>
         )
     }

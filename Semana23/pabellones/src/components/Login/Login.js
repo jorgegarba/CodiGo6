@@ -2,22 +2,20 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 
 const Login = ({signin}) => {
-    console.log(signin);
     
     let usuRef = React.createRef();
     let passRef = React.createRef();
 
     const iniciarSesion = event => {
         event.preventDefault();
-        console.log()
         signin(usuRef.current.value, passRef.current.value);
     }
 
     return(
-        <main className="container">
-            <div className="row">
+        <main className="container" >
+            <div className="row mt-5">
                 <div className="col-4"></div>
-                <div className="col-4">
+                <div className="col-4 align-middle">
                     <form onSubmit={iniciarSesion}>
                         <div className="form-group">
                             <label>Usuario</label>

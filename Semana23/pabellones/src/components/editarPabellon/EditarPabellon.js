@@ -1,50 +1,57 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import { withRouter } from "react-router-dom";
+import toastr from 'toastr'
+import 'toastr/build/toastr.min.css'
 
 class EditarPabellon extends Component {
   state = {
     loading: true,
     error: null,
-    pabellon:{}
+    pabellon: {}
   };
+
+  
 
   manejarSubmit = e => {
     e.preventDefault();
-    if(this.state.pabellon.pab_nom.trim() === ''){
-        this.setState({
-            error:true
-        })
-    }else{
-        let misHeaders = {
-            "Content-Type":"application/json"
-        };
-        let data = {
-            pabellon:{
-                ...this.state.pabellon
-            }
+    if (this.state.pabellon.pab_nom.trim() === "") {
+      this.setState({
+        error: true
+      });
+     
+    } else {
+      let misHeaders = {
+        "Content-Type": "application/json"
+      };
+      let data = {
+        pabellon: {
+          ...this.state.pabellon
         }
-        console.log(this.state.pabellon);
-        axios.put("http://localhost:5000/api/pabellon",data,{misHeaders}).then(rpta=>{
-            if(rpta.status===200){
-                Swal.fire(
-                    'Actualizado!!!!',
-                    'Pabellón actualizado correctamente',
-                    'success'
-                )
-            }else{
-                console.log("Error al actualizar");
-            }
-        })
+      };
+      console.log(this.state.pabellon);
+      axios
+        .put("http://localhost:5000/api/pabellon", data, { misHeaders })
+        .then(rpta => {
+          if (rpta.status === 200) {
+            Swal.fire(
+              "Actualizado!!!!",
+              "Pabellón actualizado correctamente",
+              "success"
+            );
+          } else {
+            console.log("Error al actualizar");
+          }
+        });
     }
   };
 
   manejarCambio = e => {
     this.setState({
-      pabellon:{
-          ...this.state.pabellon,
-          [e.target.name]: e.target.value
+      pabellon: {
+        ...this.state.pabellon,
+        [e.target.name]: e.target.value
       }
     });
   };
@@ -56,14 +63,26 @@ class EditarPabellon extends Component {
   obtenerData = e => {
     this.setState({ loading: true, error: null });
     const id = this.props.match.params.pabId;
-    axios.get(`http://localhost:5000/api/pabellon/${id}`).then(rpta => {
-        console.log(rpta)
-      this.setState({loading:false, pabellon:rpta.data.pabellon })
-    }).catch(error=>{
-        this.setState({loading:false,error:error});
-    });
-    
+    axios
+      .get(`http://localhost:5000/api/pabellon/${id}`)
+      .then(rpta => {
+        console.log(rpta);
+        this.setState({ loading: false, pabellon: rpta.data.pabellon });
+      })
+      .catch(error => {
+        this.setState({ loading: false, error: error });
+      });
   };
+
+  alertaError() {
+    toastr.options = {
+      positionClass : 'toast-bottom-full-width',
+      hideDuration: 300,
+      
+    }
+    toastr.clear()
+    setTimeout(() => toastr.error(`No deje espacios en blanco`), 500)
+  }
 
   render() {
     if (this.state.loading) {
@@ -71,6 +90,9 @@ class EditarPabellon extends Component {
     }
     return (
       <div className="container">
+        {
+           this.state.error ? this.alertaError() : null
+        }
         <div className="row">
           <div className="col-12">
             <h2>Actualizar Datos</h2>
