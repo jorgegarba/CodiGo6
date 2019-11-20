@@ -1,80 +1,91 @@
-import React, { Component, Fragment } from 'react';
-import Header from './components/Header';
-import Pabellon from './components/pabellon/Pabellon';
-import Reserva from './components/reserva/Reserva';
-import Registro from './components/registro/Registro';
-import EditarPabellon from './components/editarPabellon/EditarPabellon';
-import PageError from './components/PageError/PageError';
-import Login from './components/Login/Login';
-
-import AuthService from './services/Auth';
-// importando enrutamiento
+import React, { Component, Fragment } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect
-} from 'react-router-dom';
+} from "react-router-dom";
+
+import Header from "./components/Header";
+import Pabellon from "./components/pabellon/Pabellon";
+import Reserva from "./components/reserva/Reserva";
+import Registro from "./components/registro/Registro";
+import EditarPabellon from "./components/editarPabellon/EditarPabellon";
+import PageError from "./components/PageError/PageError";
+import Login from "./components/Login/Login";
+
+import AuthService from "./services/Auth";
+// importando enrutamiento
 
 export default class App extends Component {
-
   _sAuth = new AuthService();
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    if(this._sAuth.isLogged()){
+    if (this._sAuth.isLogged()) {
       this.state = {
         isLogged: true
-      }
-    }else{
+      };
+    } else {
       this.state = {
         isLogged: false
-      }
+      };
     }
-
+    this.signin.bind(this);
   }
 
-  signin = (email,pass) => {
-    this._sAuth.Login(email,pass).then(rpta => {
+  signin = (email, pass) => {
+    this._sAuth.login(email, pass).then(rpta => {
       console.log(rpta);
-      if(rpta.status === 200){
+      if (rpta.status === 200) {
         this._sAuth.guardarToken(rpta.token);
         this.setState({
-          isLogged:true
+          isLogged: true
         });
       }
     });
-  }
+  };
 
   render() {
     return (
       <Fragment>
-        {/* Todos los componentes que van a estar 
-        afectos al sistema de enrutamiento, deben estar en el
-        componente Router */}
+        
         <Router>
-
           <Header />
-          {/* El componente Switch es como un <router-outlet> en Angular */}
+          
           <Switch>
-            <Route exact path={"/"} component={Login} render={() => {
-              if (this.state.isLogged) {
-                return <Redirect to={{ pathname: '/pabellones' }} />
-              } else {
-                console.log("propsapp",this.signin);
-                return <Login test={"algo"} signin={this.signin} />
-              }
-            }}/>
+            <Route
+              exact
+              path="/"
+              render={() => {
+                if (this.state.isLogged) {
+                  return <Pabellon />;
+                } else {
+                  return <Redirect to={{ pathname: "/login" }} />;
+                }
+              }}
+            />
+            {this.state.isLogged ?
+              (<Redirect to={{ pathname: "/pabellones" }} />) :
+              (<Route
+                exact
+                path={"/login"}
+                render={() => {
+                  return <Login signin={this.signin} />
+                }} />)}
             <Route exact path={"/pabellones"} component={Pabellon} />
             <Route exact path={"/reservas"} component={Reserva} />
             <Route exact path={"/registro"} component={Registro} />
-            <Route exact path={"/pabellones/:pabId/edit"} component={EditarPabellon}/>
-            <Route component={PageError}/>
+            <Route
+              exact
+              path={"/pabellones/:pabId/edit"}
+              component={EditarPabellon}
+            />
+            <Route component={PageError} />
           </Switch>
         </Router>
       </Fragment>
-    )
+    );
   }
 }

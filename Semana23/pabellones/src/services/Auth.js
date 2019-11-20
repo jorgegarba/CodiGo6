@@ -20,7 +20,7 @@ export default class AuthService {
         let password_enc = window.btoa(password);
         let contenido = {
             usu_email: email,
-            usu_pass: password_enc
+            usu_pass: password
         };
 
         let misHeaders = {

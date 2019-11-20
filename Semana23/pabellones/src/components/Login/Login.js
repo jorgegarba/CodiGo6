@@ -1,17 +1,16 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
-const Login = (props) => {
-    console.log(props);
-    console.log(props.signin)
+const Login = ({signin}) => {
+    console.log(signin);
+    
     let usuRef = React.createRef();
     let passRef = React.createRef();
 
     const iniciarSesion = event => {
         event.preventDefault();
         console.log()
-        props.signin(usuRef.current.value, passRef.current.value);
-        
+        signin(usuRef.current.value, passRef.current.value);
     }
 
     return(
