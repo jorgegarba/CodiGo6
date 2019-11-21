@@ -33,6 +33,15 @@ export default class Header extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
+                {
+                  this.props.isLogged ? 
+                  <NavLink className="nav-link" to={"/crearusuario"}>
+                  Crear Usuario
+                </NavLink>
+                : null
+                }
+              </li>
+              <li className="nav-item">
                         {
                             this.props.isLogged ?
                                 <Link className="nav-link"  to={"/login"} onClick={() => {

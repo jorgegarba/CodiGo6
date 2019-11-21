@@ -13,7 +13,7 @@ import Registro from "./components/registro/Registro";
 import EditarPabellon from "./components/editarPabellon/EditarPabellon";
 import PageError from "./components/PageError/PageError";
 import Login from "./components/Login/Login";
-
+import CrearUsuario from "./components/crearUsuario/crearUsuario";
 import AuthService from "./services/Auth";
 // importando enrutamiento
 
@@ -116,6 +116,17 @@ export default class App extends Component {
               render={() => {
                 if (this.state.isLogged) {
                   return <Reserva />;
+                } else {
+                  return <Login signin={this.signin} />;
+                }
+              }}
+            />
+            <Route
+              exact
+              path="/crearusuario"
+              render={() => {
+                if (this.state.isLogged) {
+                  return <CrearUsuario />;
                 } else {
                   return <Login signin={this.signin} />;
                 }
