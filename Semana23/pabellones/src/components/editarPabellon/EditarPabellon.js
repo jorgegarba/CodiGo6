@@ -78,10 +78,13 @@ class EditarPabellon extends Component {
     toastr.options = {
       positionClass : 'toast-bottom-full-width',
       hideDuration: 300,
-      
+      maxOpened:1,
+      autoDismiss:true,
+      preventDuplicates:true
     }
     toastr.clear()
-    setTimeout(() => toastr.error(`No deje espacios en blanco`), 500)
+    // Success,Info,Warning,Error
+    setTimeout(() => toastr.warning(`No deje espacios en blanco`), 500)
   }
 
   render() {
@@ -91,7 +94,7 @@ class EditarPabellon extends Component {
     return (
       <div className="container">
         {
-           this.state.error ? this.alertaError() : null
+           this.state.error === true ? this.alertaError() : null
         }
         <div className="row">
           <div className="col-12">
