@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css'
 import { URL_BACKEND } from "../../environments/environments";
 //pongan de nombre una Mayuscula
 const CrearUsuario = () => {
+    //HOOKS
+
   const [name, setName] = useState("");
   const [apell, setApell] = useState("");
   const [pass, setPass] = useState("");
   const [email, setEmail] = useState("");
+  const [contador, setContador] = useState(0);  
+
+  useEffect(() => {
+      console.log(contador);
+  },[contador]);
+//   useEffect(() => {
+//     console.log(contador);
+// })
 
   const nuevoUsuario = event => {
     event.preventDefault();
@@ -29,13 +41,43 @@ const CrearUsuario = () => {
       .post(`${URL_BACKEND}/api/usuario`, contenido, {
         headers: misHeaders
       })
-      .then(rpta => {});
+      .then(rpta => {
+          console.log(rpta.status);
+          if(rpta.status===201){
+            Swal.fire(
+                'Usuario Creado',
+                "Operación Exitosa!",
+                "success"
+            )
+          }else{
+            console.log("error al crear");
+        }
+        limpiarCampos();
+      });
   };
+
+  const limpiarCampos = () => {
+    setName('');
+    setApell('');
+    setEmail('');
+    setPass('');
+    toastr.option = {
+        positionClass : 'toast-bottom',
+        hideDuration: 300,
+        preventDuplicates:true
+    }
+    toastr.clear();
+    setTimeout(() => toastr.info(`Espacios en blanco`), 500)
+  }
 
   return (
     <div className="container mt-2">
       <div className="row">
         <div className="col-12">
+            <button className="btn btn-info" 
+            onClick={()=>limpiarCampos()}>
+                Limpiar Todo
+            </button>
           <form onSubmit={nuevoUsuario}>
             <div className="form-group">
               <label>Nombres</label>
@@ -71,7 +113,15 @@ const CrearUsuario = () => {
               />
             </div>
 
-            <button className="btn btn-primary">Crear Usuario</button>
+            <button className="btn btn-primary" 
+            onClick={
+                () => {
+                let c = contador;
+                c++;
+                setContador(c);
+            }}>
+                Crear Usuario
+            </button>
           </form>
         </div>
       </div>
