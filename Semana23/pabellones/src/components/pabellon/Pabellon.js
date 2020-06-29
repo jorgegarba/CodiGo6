@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { URL_BACKEND } from '../../environments/environments';
 import { MDBDataTable } from 'mdbreact';
+import { Link } from 'react-router-dom';
 
 export default class Pabellon extends Component {
 
@@ -23,7 +24,8 @@ export default class Pabellon extends Component {
         pab_id: pabellon.pab_id,
         pab_nom: pabellon.pab_nom,
         createdAt: pabellon.createdAt,
-        updatedAt: pabellon.updatedAt
+        updatedAt: pabellon.updatedAt,
+        actions: <Link className="btn btn-info" to={`/pabellones/${pabellon.pab_id}/edit`}>Editar</Link>
       }
       filas.push(objFila);
     })
@@ -34,7 +36,8 @@ export default class Pabellon extends Component {
         { label: "Id", field: "pab_id", sort: "asc", },
         { label: "Name", field: "pab_nom", sort: "asc", },
         { label: "Fecha de Creación", field: "createdAt", sort: "asc", },
-        { label: "Fecha de Actualización", field: "updatedAt", sort: "asc", }
+        { label: "Fecha de Actualización", field: "updatedAt", sort: "asc", },
+        { label: 'Acciones', field:'actions',sort:'asc'}
       ],
       rows: filas
     }

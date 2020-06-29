@@ -3,6 +3,7 @@ import { Usuario } from '../configuracion/sequelize';
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op; // Los operadores de comparacion de sequelize
 export let crearUsuario = (req: Request, res: Response) => {
+    console.log("misuario",req.body);
     // build => CONSTRUYE el objeto usuario, mas NO LO CREA en la base de datos
     let objUsuario = Usuario.build(req.body.usuario);
     objUsuario.setSaltYHash(req.body.usuario.usu_pass);
