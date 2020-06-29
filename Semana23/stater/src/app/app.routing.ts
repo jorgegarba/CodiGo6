@@ -20,7 +20,6 @@ const routes: Routes = [
     path: 'invitado',
     loadChildren: './invitado/invitado.module#InvitadoModule',
   }
-
 ]
 
 @NgModule({
